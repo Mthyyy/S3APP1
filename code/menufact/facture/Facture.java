@@ -19,6 +19,8 @@ public class Facture {
     private ArrayList<PlatChoisi> platchoisi = new ArrayList<PlatChoisi>();
     private int courant;
     private Client client;
+    private EtatFacture etatFacture;
+    private String etatString;
 
 
     /**********************Constantes ************/
@@ -75,14 +77,16 @@ public class Facture {
      */
     public void payer()
     {
-       etat = FactureEtat.PAYEE;
+       //etat = FactureEtat.PAYEE;
+       etatFacture.payer();
     }
     /**
      * Permet de chager l'état de la facture à FERMEE
      */
-    public void fermer()
+    public void fermer() throws FactureException
     {
-       etat = FactureEtat.FERMEE;
+       //etat = FactureEtat.FERMEE;
+       etatFacture.fermer();
     }
 
     /**
@@ -91,10 +95,12 @@ public class Facture {
      */
     public void ouvrir() throws FactureException
     {
-        if (etat == FactureEtat.PAYEE)
+        /*if (etat == FactureEtat.PAYEE)
             throw new FactureException("La facture ne peut pas être reouverte.");
         else
-            etat = FactureEtat.OUVERTE;
+            etat = FactureEtat.OUVERTE;*/
+
+        etatFacture.ouvrir();
     }
 
     /**
@@ -113,6 +119,7 @@ public class Facture {
     public Facture(String description) {
         date = new Date();
         etat = FactureEtat.OUVERTE;
+        etatFacture = new EtatOuvert(this);
         courant = -1;
         this.description = description;
     }
@@ -124,10 +131,12 @@ public class Facture {
      */
     public void ajoutePlat(PlatChoisi p) throws FactureException
     {
-        if (etat == FactureEtat.OUVERTE)
+        /*if (etat == FactureEtat.OUVERTE)
             platchoisi.add(p);
         else
-            throw new FactureException("On peut ajouter un plat seulement sur une facture OUVERTE.");
+            throw new FactureException("On peut ajouter un plat seulement sur une facture OUVERTE.");*/
+
+        etatFacture.ajoutePlat(p, platchoisi);
     }
 
     /**
@@ -178,5 +187,21 @@ public class Facture {
         factureGenere += "          Le total est de:   " + total() + "\n";
 
         return factureGenere;
+    }
+
+    public void retirerPlat(int code){
+        //etatFacture.retirerPlat();
+    }
+
+    public void selectionnerPlat(PlatChoisi p){
+        selectionnerPlat(p);
+    }
+
+    public void setEtat(FactureEtat etat){
+        this.etat = etat;
+    }
+
+    public void setEtatFacture(EtatFacture etat){
+        this.etatFacture = etat;
     }
 }

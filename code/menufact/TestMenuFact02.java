@@ -28,8 +28,8 @@ public class TestMenuFact02 {
         PlatSante ps5 = new PlatSante(14,"PlatSante4",50,11,11,11);
 
 
-        Menu m1 = new Menu("menufact.Menu 1");
-        Menu m2 = new Menu("menufact.Menu 2");
+        Menu m1 = Menu.getInstance("menufact.Menu 1");
+        Menu m2 = Menu.getInstance("menufact.Menu 2");
 
         Facture f1 = new Facture("Ma facture");
 
@@ -179,7 +179,7 @@ public class TestMenuFact02 {
     {
         System.out.println("=== test5_DeplacementMenuAvancer");
 
-        System.out.println("===Selectionner un plat du menu 0");
+        System.out.println("=== Selectionner un plat du menu 0");
         m1.position(0);
 
         System.out.println("=== Afficher le plat courant");
