@@ -6,6 +6,8 @@ import menufact.facture.Facture;
 import menufact.plats.PlatAuMenu;
 import menufact.plats.PlatChoisi;
 import menufact.plats.PlatSante;
+import menufact.facture.Vue;
+import menufact.facture.ControllerFactures;
 
 public class TestMenuFact02 {
 
@@ -95,13 +97,16 @@ public class TestMenuFact02 {
         }
 
 
-
+        Vue vue= new Vue();
+        ControllerFactures controller = new ControllerFactures(f1, vue);
+        controller.connectionVue();
 
 
 
         System.out.println("FIN DE TOUS LES TESTS...");
 
-        System.out.println(f1.genererFacture());
+        System.out.println(vue.genererFacture());
+        System.out.println(vue);
     }
 
     private void test1_AffichePlatsAuMenu(boolean trace, PlatAuMenu p1, PlatAuMenu p2,

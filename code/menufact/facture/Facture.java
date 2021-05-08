@@ -23,7 +23,6 @@ public class Facture {
     private String etatString;
 
 
-    /**********************Constantes ************/
     private final double TPS = 0.05;
     private final double TVQ = 0.095;
 
@@ -33,17 +32,16 @@ public class Facture {
      */
     public void associerClient (Client client)
     {
-        this.client = client;
+        this.setClient(client);
     }
 
     /**
      * Calcul du sous total de la facture
      * @return le sous total
      */
-    public double sousTotal()
-    {
+    public double sousTotal() {
         double soustotal=0;
-         for (PlatChoisi p : platchoisi)
+         for (PlatChoisi p : getPlatchoisi())
              soustotal += p.getQuantite() * p.getPlat().getPrix();
         return soustotal;
     }
@@ -61,7 +59,7 @@ public class Facture {
      * @return la valeur de la TPS
      */
     private double tps(){
-        return TPS*sousTotal();
+        return getTPS() *sousTotal();
     }
 
     /**
@@ -69,46 +67,35 @@ public class Facture {
      * @return la valeur de la TVQ
      */
     private  double tvq(){
-        return TVQ*(TPS+1)*sousTotal();
+        return getTVQ() *(getTPS() +1)*sousTotal();
     }
 
     /**
      * Permet de chager l'état de la facture à PAYEE
      */
-    public void payer()
-    {
-       //etat = FactureEtat.PAYEE;
-       etatFacture.payer();
+    public void payer() {
+       getEtatFacture().payer();
     }
     /**
      * Permet de chager l'état de la facture à FERMEE
      */
-    public void fermer() throws FactureException
-    {
-       //etat = FactureEtat.FERMEE;
-       etatFacture.fermer();
+    public void fermer() throws FactureException {
+       getEtatFacture().fermer();
     }
 
     /**
      * Permet de changer l'état de la facture à OUVERTE
      * @throws FactureException en cas que la facture soit PAYEE
      */
-    public void ouvrir() throws FactureException
-    {
-        /*if (etat == FactureEtat.PAYEE)
-            throw new FactureException("La facture ne peut pas être reouverte.");
-        else
-            etat = FactureEtat.OUVERTE;*/
-
-        etatFacture.ouvrir();
+    public void ouvrir() throws FactureException {
+        getEtatFacture().ouvrir();
     }
 
     /**
      *
      * @return l'état de la facture
      */
-    public FactureEtat getEtat()
-    {
+    public FactureEtat getEtat() {
         return etat;
     }
 
@@ -117,11 +104,11 @@ public class Facture {
      * @param description la description de la Facture
      */
     public Facture(String description) {
-        date = new Date();
-        etat = FactureEtat.OUVERTE;
-        etatFacture = new EtatOuvert(this);
-        courant = -1;
-        this.description = description;
+        setDate(new Date());
+        setEtat(FactureEtat.OUVERTE);
+        setEtatFacture(new EtatOuvert(this));
+        setCourant(-1);
+        this.setDescription(description);
     }
 
     /**
@@ -129,39 +116,38 @@ public class Facture {
      * @param p un plat choisi
      * @throws FactureException Seulement si la facture est OUVERTE
      */
-    public void ajoutePlat(PlatChoisi p) throws FactureException
-    {
+    public void ajoutePlat(PlatChoisi p) throws FactureException {
         /*if (etat == FactureEtat.OUVERTE)
             platchoisi.add(p);
         else
             throw new FactureException("On peut ajouter un plat seulement sur une facture OUVERTE.");*/
 
-        etatFacture.ajoutePlat(p, platchoisi);
+        getEtatFacture().ajoutePlat(p, getPlatchoisi());
     }
 
     /**
      *
      * @return le contenu de la facture en chaîne de caracteres
      */
-    @Override
-    public String toString() {
-        return "menufact.facture.Facture{" +
-                "date=" + date +
-                ", description='" + description + '\'' +
-                ", etat=" + etat +
-                ", platchoisi=" + platchoisi +
-                ", courant=" + courant +
-                ", client=" + client +
-                ", TPS=" + TPS +
-                ", TVQ=" + TVQ +
-                '}';
-    }
+   //@Override
+   //public String toString() {
+   //    return "menufact.facture.Facture{" +
+   //            "date=" + getDate() +
+   //            ", description='" + getDescription() + '\'' +
+   //            ", etat=" + getEtat() +
+   //            ", platchoisi=" + getPlatchoisi() +
+   //            ", courant=" + getCourant() +
+   //            ", client=" + getClient() +
+   //            ", TPS=" + getTPS() +
+   //            ", TVQ=" + getTVQ() +
+   //            '}';
+   //}
 
     /**
      *
      * @return une chaîne de caractères avec la facture à imprimer
      */
-    public String genererFacture()
+    /*public String genererFacture()
     {
         String lesPlats = new String();
         String factureGenere = new String();
@@ -170,13 +156,13 @@ public class Facture {
 
 
         factureGenere =   "Facture generee.\n" +
-                          "Date:" + date + "\n" +
-                          "Description: " + description + "\n" +
-                          "Client:" + client.getNom() + "\n" +
+                          "Date:" + getDate() + "\n" +
+                          "Description: " + getDescription() + "\n" +
+                          "Client:" + getClient().getNom() + "\n" +
                           "Les plats commandes:" + "\n" + lesPlats;
 
         factureGenere += "Seq   Plat         Prix   Quantite\n";
-        for (PlatChoisi plat : platchoisi)
+        for (PlatChoisi plat : getPlatchoisi())
         {
             factureGenere +=  i + "     " + plat.getPlat().getDescription() +  "  " + plat.getPlat().getPrix() +  "      " + plat.getQuantite() + "\n";
             i++;
@@ -188,7 +174,7 @@ public class Facture {
 
         return factureGenere;
     }
-
+*/
     public void retirerPlat(int code){
         //etatFacture.retirerPlat();
     }
@@ -203,5 +189,66 @@ public class Facture {
 
     public void setEtatFacture(EtatFacture etat){
         this.etatFacture = etat;
+    }
+
+    public Date getDate(){
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public ArrayList<PlatChoisi> getPlatchoisi() {
+        return platchoisi;
+    }
+
+    public void setPlatchoisi(ArrayList<PlatChoisi> platchoisi) {
+        this.platchoisi = platchoisi;
+    }
+
+    public int getCourant() {
+        return courant;
+    }
+
+    public void setCourant(int courant) {
+        this.courant = courant;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public EtatFacture getEtatFacture() {
+        return etatFacture;
+    }
+
+    //public String getEtatString() {
+    //    return etatString;
+    //}
+//
+    //public void setEtatString(String etatString) {
+    //    this.etatString = etatString;
+    //}
+
+    /**********************Constantes ************/
+    public double getTPS() {
+        return TPS;
+    }
+
+    public double getTVQ() {
+        return TVQ;
     }
 }

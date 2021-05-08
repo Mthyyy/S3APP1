@@ -1,7 +1,9 @@
 package menufact;
 
 import menufact.exceptions.MenuException;
+import menufact.plats.FactoryPlatId;
 import menufact.plats.PlatAuMenu;
+import menufact.plats.FactoryPlats
 
 import java.util.ArrayList;
 
@@ -10,9 +12,12 @@ public class Menu {
     private int courant;
     private ArrayList<PlatAuMenu> plat = new ArrayList<PlatAuMenu>();
     private static Menu menu;
+    private FactoryPlats factory;
 
     private Menu(String description) {
         this.description = description;
+        factory = new FactoryPlatId();
+        
     }
 
     public static Menu getInstance(String description){

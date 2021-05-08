@@ -1,6 +1,8 @@
 package menufact;
 
+import menufact.facture.ControllerFactures;
 import menufact.facture.Facture;
+import menufact.facture.Vue;
 import menufact.plats.PlatAuMenu;
 import menufact.plats.PlatChoisi;
 import menufact.plats.PlatSante;
@@ -47,39 +49,42 @@ public class TestMenuFact01 {
 
             System.out.println("== New menufact.facture.Facture");
             Facture facture = new Facture("Ma facture");
-            System.out.println(facture);
+            Vue vue = new Vue();
+            ControllerFactures controller= new ControllerFactures(facture, vue);
+            controller.connectionVue();
+            System.out.println(vue);
 
             System.out.println("== Ajout d'un plat choisie à la facture");
             facture.ajoutePlat(pch1);
-            System.out.println(facture);
+            System.out.println(vue);
             System.out.println(facture.sousTotal());
 
             System.out.println("== Ajout d'un plat choisie à la facture");
             PlatChoisi pch2 = new PlatChoisi(p2, 10);
             facture.ajoutePlat(pch2);
-            System.out.println(facture);
+            System.out.println(vue);
             System.out.println(facture.sousTotal());
 
             System.out.println(facture.total());
             facture.ouvrir();
-            System.out.println(facture);
+            System.out.println(vue);
             System.out.println("Etat = " + facture.getEtat());
 
             facture.fermer();
-            System.out.println(facture);
+            System.out.println(vue);
             facture.ajoutePlat(pch1);
             System.out.println("Etat = " + facture.getEtat());
 
             facture.ouvrir();
-            System.out.println(facture);
+            System.out.println(vue);
             System.out.println("Etat = " + facture.getEtat());
 
             facture.payer();
-            System.out.println(facture);
+            System.out.println(vue);
             System.out.println("Etat = " + facture.getEtat());
 
             facture.ouvrir();
-            System.out.println(facture);
+            System.out.println(vue);
             System.out.println("Etat = " + facture.getEtat());
         }catch (Exception fe)
         {
