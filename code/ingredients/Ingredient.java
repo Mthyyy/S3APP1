@@ -1,9 +1,15 @@
 package ingredients;
 
-public class Ingredient {
-    private String nom;
-    private String description;
-    private TypeIngredient typeIngredient;
+public abstract class Ingredient {
+    protected String nom;
+    protected String description;
+    protected int quantite;
+    protected EtatIngredient etat;
+
+    public Ingredient()
+    {
+
+    }
 
     public String getNom() {
         return nom;
@@ -11,6 +17,11 @@ public class Ingredient {
 
     public void setNom(String nom) {
         this.nom = nom;
+    }
+
+    public int getQuantite()
+    {
+        return quantite;
     }
 
     public String getDescription() {
@@ -21,11 +32,7 @@ public class Ingredient {
         this.description = description;
     }
 
-    public TypeIngredient getTypeIngredient() {
-        return typeIngredient;
-    }
+    public abstract String ToString();
 
-    public void setTypeIngredient(TypeIngredient typeIngredient) {
-        this.typeIngredient = typeIngredient;
-    }
+
 }
