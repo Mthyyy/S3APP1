@@ -1,7 +1,7 @@
 package ingredients;
 
-public class Fruit extends Ingredient{
-    public Fruit(String nom, String description,int quantite,EtatIngredient etat) {
+public class Laitier extends Ingredient{
+    public Laitier(String nom, String description,int quantite,EtatIngredient etat) {
         this.nom = nom;
         this.description = description;
         this.quantite = quantite;
@@ -11,7 +11,7 @@ public class Fruit extends Ingredient{
     @Override
     public String ToString() {
         String c;
-        c = String.valueOf(quantite) + etat.getUnite() +  "de "+ nom;
+        c = String.valueOf(quantite)+ etat.getUnite() +  "de "+ nom;
         return c;
     }
 }
