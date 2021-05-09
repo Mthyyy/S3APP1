@@ -2,18 +2,36 @@ package menufact.facture;
 
 import menufact.plats.PlatChoisi;
 
+/**
+ * La classe Vue est la vue dans le modele de conception MVC. Elle permet de faire l'affichage des informations pertinentes.
+ * @author Mathias Gagnon
+ */
 public class Vue {
 
+    /**
+     * f contient la facture qui a les informations que la vue doit afficher
+     */
     Facture f;
 
+    /**
+     * Constructeur de base, sans parametres, de la classe.
+     */
     public Vue(){
 
     }
 
+    /**
+     * Constructeur avec parametres de la classe.
+     * @param f facture a associer a la vue
+     */
     public Vue(Facture f){
         this.f = f;
     }
 
+    /**
+     * Methode qui permet de generer la facture avec toutes les informations pertinentes
+     * @return String qui contient toutes les informations de la facture
+     */
     public String genererFacture(){
         String lesPlats = new String();
         String factureGenere = new String();
@@ -41,6 +59,10 @@ public class Vue {
         return factureGenere;
     }
 
+    /**
+     * Surcharge de la methode toString pour afficher les informations pertinentes de la facture
+     * @return
+     */
     @Override
     public String toString() {
         return "menufact.facture.Facture{" +

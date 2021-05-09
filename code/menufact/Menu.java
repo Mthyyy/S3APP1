@@ -92,7 +92,7 @@ public class Menu {
 
     /**
      * Permet d'aller a la position suivante dans le menu avec la variable courant.
-     * @throws MenuException exception associee a un probleme avec le menu
+     * @throws MenuException si il n'y a plus de place dans le menu
      */
     public void positionSuivante() throws MenuException
     {
@@ -104,7 +104,7 @@ public class Menu {
 
     /**
      * Permet d'aller a la position precedente dans le menu avec la variable courant.
-     * @throws MenuException exception associee a un probleme avec le menu
+     * @throws MenuException si on est deja au debut du menu
      */
     public void positionPrecedente() throws MenuException
     {

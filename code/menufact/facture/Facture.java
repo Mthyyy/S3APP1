@@ -112,73 +112,26 @@ public class Facture {
     }
 
     /**
-     *
-     * @param p un plat choisi
-     * @throws FactureException Seulement si la facture est OUVERTE
+     * Permet d'ajouter un plat a la facture
+     * @param p plat a ajouter
+     * @throws FactureException au cas ou la facture soit trop pleine
      */
     public void ajoutePlat(PlatChoisi p) throws FactureException {
-        /*if (etat == FactureEtat.OUVERTE)
-            platchoisi.add(p);
-        else
-            throw new FactureException("On peut ajouter un plat seulement sur une facture OUVERTE.");*/
-
         getEtatFacture().ajoutePlat(p, getPlatchoisi());
     }
 
     /**
-     *
-     * @return le contenu de la facture en chaîne de caracteres
+     * Permet de retirer un plat de la facture
+     * @param code code associe au plat
      */
-   //@Override
-   //public String toString() {
-   //    return "menufact.facture.Facture{" +
-   //            "date=" + getDate() +
-   //            ", description='" + getDescription() + '\'' +
-   //            ", etat=" + getEtat() +
-   //            ", platchoisi=" + getPlatchoisi() +
-   //            ", courant=" + getCourant() +
-   //            ", client=" + getClient() +
-   //            ", TPS=" + getTPS() +
-   //            ", TVQ=" + getTVQ() +
-   //            '}';
-   //}
-
-    /**
-     *
-     * @return une chaîne de caractères avec la facture à imprimer
-     */
-    /*public String genererFacture()
-    {
-        String lesPlats = new String();
-        String factureGenere = new String();
-
-        int i =1;
-
-
-        factureGenere =   "Facture generee.\n" +
-                          "Date:" + getDate() + "\n" +
-                          "Description: " + getDescription() + "\n" +
-                          "Client:" + getClient().getNom() + "\n" +
-                          "Les plats commandes:" + "\n" + lesPlats;
-
-        factureGenere += "Seq   Plat         Prix   Quantite\n";
-        for (PlatChoisi plat : getPlatchoisi())
-        {
-            factureGenere +=  i + "     " + plat.getPlat().getDescription() +  "  " + plat.getPlat().getPrix() +  "      " + plat.getQuantite() + "\n";
-            i++;
-        }
-
-        factureGenere += "          TPS:               " + tps() + "\n";
-        factureGenere += "          TVQ:               " + tvq() + "\n";
-        factureGenere += "          Le total est de:   " + total() + "\n";
-
-        return factureGenere;
-    }
-*/
     public void retirerPlat(int code){
         //etatFacture.retirerPlat();
     }
 
+    /**
+     * Permet de selectionner un plat
+     * @param p plat a selectionner
+     */
     public void selectionnerPlat(PlatChoisi p){
         selectionnerPlat(p);
     }
@@ -234,14 +187,6 @@ public class Facture {
     public EtatFacture getEtatFacture() {
         return etatFacture;
     }
-
-    //public String getEtatString() {
-    //    return etatString;
-    //}
-//
-    //public void setEtatString(String etatString) {
-    //    this.etatString = etatString;
-    //}
 
     /**********************Constantes ************/
     public double getTPS() {
