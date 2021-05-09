@@ -12,11 +12,11 @@ public class MyTestMenuFact2 {
 
         ListeIngredients liste = new ListeIngredients();
 
-        liste.ajouterIngredient("poulet","allo,",50,new Liquide(), TypeIngredient.VIANDE);
+        liste.ajouterIngredient("poulet","allo,",50,Liquide.getInstance(), TypeIngredient.VIANDE);
 
         ListeIngredients liste2 = new ListeIngredients();
 
-        liste2.ajouterIngredient("patates","allo,",50,new Solide(), TypeIngredient.LEGUME);
+        liste2.ajouterIngredient("patates","allo,",50,Solide.getInstance(), TypeIngredient.LEGUME);
 
         System.out.println(liste.getListIngredients().get(0));
 
