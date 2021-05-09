@@ -5,4 +5,3 @@ public abstract class FactoryPlats {
     abstract public PlatEnfant creerPlatEnfant(int code, String description, double prix, double proportion);
     abstract public PlatSante creerPlatSante(int code, String description, double prix, double kcal, double chol, double gras);
 }
-  

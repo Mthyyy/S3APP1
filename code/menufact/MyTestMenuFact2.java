@@ -1,13 +1,10 @@
 package menufact;
 
 import ingredients.Liquide;
+import ingredients.Solide;
 import ingredients.TypeIngredient;
 import ingredients.exceptions.IngredientException;
-import menufact.plats.ListeIngredients;
-import menufact.plats.PlatAuMenu;
-import menufact.plats.PlatChoisi;
-import menufact.plats.Chef;
-import menufact.plats.Serveur;
+import menufact.plats.*;
 
 public class MyTestMenuFact2 {
 
@@ -17,15 +14,26 @@ public class MyTestMenuFact2 {
 
         liste.ajouterIngredient("poulet","allo,",50,new Liquide(), TypeIngredient.VIANDE);
 
-        System.out.println(liste.getListIngredients().get(0).ToString());
+        ListeIngredients liste2 = new ListeIngredients();
+
+        liste2.ajouterIngredient("patates","allo,",50,new Solide(), TypeIngredient.LEGUME);
+
+        System.out.println(liste.getListIngredients().get(0));
 
         Chef chef = new Chef();
 
         Serveur serveur1 = new Serveur();
         Serveur serveur2 = new Serveur();
 
-        PlatAuMenu pm1 = new PlatAuMenu(1, "frites", 11.25);
-        PlatAuMenu pm2 = new PlatAuMenu(2, "poutine", 16.25);
+        FactoryPlats factoryPlats = new ConcreteFactoryPlat();
+
+        PlatAuMenu pm1 = factoryPlats.creerPlat(1, "frite", 11.25);
+        PlatAuMenu pm2 = factoryPlats.creerPlatEnfant(2, "poutine", 16.25, 0.5);
+
+        pm1.setListeIngredients(liste);
+        pm2.setListeIngredients(liste2);
+
+        System.out.println(pm2);
 
         PlatChoisi p1 = new PlatChoisi(pm1, 1);
         PlatChoisi p2 = new PlatChoisi(pm2, 1);
