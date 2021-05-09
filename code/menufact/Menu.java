@@ -1,7 +1,7 @@
 package menufact;
 
 import menufact.exceptions.MenuException;
-import menufact.plats.FactoryPlatId;
+import menufact.plats.ConcreteFactoryPlat;
 import menufact.plats.PlatAuMenu;
 import menufact.plats.FactoryPlats;
 
@@ -46,7 +46,7 @@ public class Menu {
      */
     private Menu(String description) {
         this.description = description;
-        factory = new FactoryPlatId();
+        factory = new ConcreteFactoryPlat();
 
     }
 

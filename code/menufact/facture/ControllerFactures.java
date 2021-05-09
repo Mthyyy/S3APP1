@@ -2,6 +2,10 @@ package menufact.facture;
 
 /**
  * La classe ControllerFactures est le controller dans le modele de conception MVC, il fait le lien entre la vue et le modele.
+ * @author Mathias Gagnon
+ * @version 1.0
+ * @see Facture
+ * @see Vue
  */
 public class ControllerFactures {
 
