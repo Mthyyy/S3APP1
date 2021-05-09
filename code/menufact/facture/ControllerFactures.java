@@ -39,4 +39,8 @@ public class ControllerFactures {
     public void connectionVue(){
         vue.setFacture(getFacture());
     }
+
+    public String afficher(){
+        return vue.toString();
+    }
 }

@@ -106,7 +106,7 @@ public class TestMenuFact02 {
         System.out.println("FIN DE TOUS LES TESTS...");
 
         System.out.println(vue.genererFacture());
-        System.out.println(vue);
+        controller.afficher();
     }
 
     private void test1_AffichePlatsAuMenu(boolean trace, PlatAuMenu p1, PlatAuMenu p2,
