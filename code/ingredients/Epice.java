@@ -1,7 +1,7 @@
 package ingredients;
 
-public class Épice extends Ingredient{
-    public Épice(String nom, String description,int quantite, EtatIngredient etat) {
+public class Epice extends Ingredient{
+    public Epice(String nom, String description, int quantite, EtatIngredient etat) {
         this.nom = nom;
         this.description = description;
         this.quantite = quantite;

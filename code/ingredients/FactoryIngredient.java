@@ -15,7 +15,7 @@ public  class FactoryIngredient {
         Ingredient i;
         switch (type)
         {
-            case EPICE: i = new Épice(nom,description,quantite,etat);
+            case EPICE: i = new Epice(nom,description,quantite,etat);
             break;
 
             case FRUIT : i = new Fruit(nom,description,quantite,etat);

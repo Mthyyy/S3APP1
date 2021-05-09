@@ -9,6 +9,7 @@ public class Vue {
     public Vue(){
 
     }
+
     public Vue(Facture f){
         this.f = f;
     }
