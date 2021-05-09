@@ -3,8 +3,8 @@ package ingredients;
 public class Liquide extends EtatIngredient{
 
     protected String unite;
-
-    public Liquide(){
+    private static Liquide instance;
+    private Liquide(){
 
         unite = "ml";
     }
@@ -12,5 +12,14 @@ public class Liquide extends EtatIngredient{
     public String getUnite()
     {
         return unite;
+    }
+
+    public static EtatIngredient getInstance() {
+            if(instance == null)
+            {
+                instance = new Liquide();
+
+            }
+            return instance;
     }
 }

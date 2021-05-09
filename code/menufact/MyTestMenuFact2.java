@@ -1,6 +1,7 @@
 package menufact;
 
 import ingredients.Liquide;
+import ingredients.Solide;
 import ingredients.TypeIngredient;
 import ingredients.exceptions.IngredientException;
 import menufact.plats.ListeIngredients;
@@ -15,9 +16,10 @@ public class MyTestMenuFact2 {
 
         ListeIngredients liste = new ListeIngredients();
 
-        liste.ajouterIngredient("poulet","allo,",50,new Liquide(), TypeIngredient.VIANDE);
-
+        liste.ajouterIngredient("poulet","allo,",50, Solide.getInstance(), TypeIngredient.VIANDE);
+        liste.ajouterViande("poulet","allo,",50,Liquide.getInstance());
         System.out.println(liste.getListIngredients().get(0).ToString());
+        System.out.println(liste.getListIngredients().get(1).ToString());
 
         Chef chef = new Chef();
 
