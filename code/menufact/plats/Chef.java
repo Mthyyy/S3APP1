@@ -72,8 +72,8 @@ public class Chef {
             listePlats.get(i).setEtat(PlatEtat.TERMINE);
         }
 
-        listePlats.clear();
-
         notifier();
+
+        listePlats.clear();
     }
 }

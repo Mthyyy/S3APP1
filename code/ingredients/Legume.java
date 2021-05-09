@@ -9,7 +9,7 @@ public class Legume extends Ingredient{
     }
 
     @Override
-    public String ToString() {
+    public String toString() {
         String c;
         c = String.valueOf(quantite) + etat.getUnite() +  " de "+ nom;
         return c;

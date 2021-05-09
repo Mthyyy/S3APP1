@@ -44,5 +44,14 @@ public class ListeIngredients {
         return lesIngedients;
     }
 
+    @Override
+    public String toString(){
+        String stream = " ";
+         for(int i = 0; i < lesIngedients.size(); i++){
+             stream = stream + lesIngedients.get(i);
+         }
+
+         return stream;
+    }
 
 }

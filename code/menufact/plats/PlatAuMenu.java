@@ -1,5 +1,9 @@
 package menufact.plats;
 
+import ingredients.Ingredient;
+
+import java.util.ArrayList;
+
 /**
  * La classe PlatAuMenu contient est la classe generale des plats qui peuvent etre ajoutes au menu du restaurant et commandes.
  * @author Domingo Palao Munoz, Mathias Gagnon, Mathieu Lefebvre
@@ -23,6 +27,11 @@ public class PlatAuMenu {
     private double prix;
 
     /**
+     * listeIngredients contient les ingredients necessaires pour faire le plat
+     */
+    private ListeIngredients listeIngredients;
+
+    /**
      * Constructeur avec parametres de la classe.
      * @param code contient le code du plat
      * @param description contient la description du plat
@@ -32,6 +41,7 @@ public class PlatAuMenu {
         this.code = code;
         this.description = description;
         this.prix = prix;
+        this.listeIngredients = new ListeIngredients();
     }
 
     /**
@@ -50,7 +60,7 @@ public class PlatAuMenu {
                 "code=" + code +
                 ", description='" + description + '\'' +
                 ", prix=" + prix +
-                "}\n";
+                "}" + listeIngredients;
     }
 
     public int getCode() {
@@ -75,5 +85,13 @@ public class PlatAuMenu {
 
     public void setPrix(double prix) {
         this.prix = prix;
+    }
+
+    public ListeIngredients getListeIngredients(){
+        return this.listeIngredients;
+    }
+
+    public void setListeIngredients(ListeIngredients listeIngredients){
+        this.listeIngredients = listeIngredients;
     }
 }

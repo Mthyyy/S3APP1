@@ -32,7 +32,4 @@ public abstract class Ingredient {
         this.description = description;
     }
 
-    public abstract String ToString();
-
-
 }
