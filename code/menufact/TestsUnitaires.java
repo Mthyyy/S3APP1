@@ -12,6 +12,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class TestsUnitaires {
+
+
     @Test
     public void TestsMenu() throws IngredientException, MenuException {
         ViandeInventaire.getInstance();
@@ -62,4 +64,5 @@ public class TestsUnitaires {
         menu.retirerCourant();
          //a continuer
     }
+
 }
