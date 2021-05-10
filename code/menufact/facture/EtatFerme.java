@@ -60,15 +60,15 @@ public class EtatFerme extends EtatFacture{
      * Surcharge de la methode retirerPlat.
      */
     @Override
-    public void retirerPlat() {
-
+    public void retirerPlat() throws FactureException {
+        throw new FactureException("Impossible de slectionner un plat dans une facture ferme");
     }
 
     /**
      * Surcharge de la methode selectionnerPlat.
      */
     @Override
-    public void selectionnerPlat() {
-
+    public void selectionnerPlat(PlatChoisi p) throws FactureException {
+        throw new FactureException("Impossible de slectionner un plat dans une facture ferme");
     }
 }

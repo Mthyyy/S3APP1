@@ -15,12 +15,12 @@ public class Chef {
     /**
      * listeServeurs est la liste de tous les serveurs a notifier lorsqu'un plat est pret.
      */
-    ArrayList<Serveur> listeServeurs;
+    public ArrayList<Serveur> listeServeurs;
 
     /**
      * listePlats est la liste de tous les plats que le chef doit preparer
      */
-    ArrayList<PlatChoisi> listePlats;
+    public ArrayList<PlatChoisi> listePlats;
 
     /**
      * Constructeur de la classe chef.

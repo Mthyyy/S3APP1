@@ -21,6 +21,7 @@ public class Facture {
     private Client client;
     private EtatFacture etatFacture;
     private String etatString;
+    private PlatChoisi platSelectionner;
 
 
     private final double TPS = 0.05;
@@ -67,7 +68,7 @@ public class Facture {
      * @return la valeur de la TVQ
      */
     private  double tvq(){
-        return getTVQ() *(getTPS() +1)*sousTotal();
+        return getTVQ()*sousTotal();
     }
 
     /**
@@ -116,16 +117,23 @@ public class Facture {
      * @param p plat a ajouter
      * @throws FactureException au cas ou la facture soit trop pleine
      */
-    public void ajoutePlat(PlatChoisi p) throws FactureException {
-        getEtatFacture().ajoutePlat(p, getPlatchoisi());
+    public void ajoutePlat(PlatChoisi p) {
+        try{
+            getEtatFacture().ajoutePlat(p, getPlatchoisi());
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
+
     }
 
     /**
      * Permet de retirer un plat de la facture
      * @param code code associe au plat
      */
-    public void retirerPlat(int code){
-        //etatFacture.retirerPlat();
+    public void retirerPlat() throws FactureException {
+        etatFacture.retirerPlat();
     }
 
     /**
@@ -133,8 +141,11 @@ public class Facture {
      * @param p plat a selectionner
      */
     public void selectionnerPlat(PlatChoisi p){
-        selectionnerPlat(p);
+
+        platSelectionner = p;
+
     }
+    public PlatChoisi getPlatSelectionner(){return platSelectionner;}
 
     public void setEtat(FactureEtat etat){
         this.etat = etat;

@@ -10,11 +10,13 @@ import java.util.ArrayList;
  */
 public class Serveur {
 
+    public ArrayList<PlatChoisi> listPlat;
     /**
      * Methode qui recoit la notificaiton du chef et qui sert les plats recus.
      * @param listePlats liste des plats que le serveur doit servir
      */
     public void update(ArrayList <PlatChoisi> listePlats){
+        listPlat = listePlats;
         System.out.println("J'ai ete notifie");
 
         for(int i = 0; i < listePlats.size(); i++){

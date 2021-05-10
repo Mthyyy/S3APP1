@@ -33,26 +33,35 @@ public class PlatChoisi {
      * @param plat contient le PlatAuMenu
      * @param quantite contient la quantite
      */
-    public PlatChoisi(PlatAuMenu plat, int quantite) throws IngredientException {
+    public PlatChoisi(PlatAuMenu plat, int quantite){
         this.plat = plat;
         this.quantite = quantite;
         this.etat = PlatEtat.COMMANDE;
 
-        for(int i =0 ;i<plat.getListeIngredients().getListIngredients().size();i++)
-        {
-            if(plat.getListeIngredients().getListIngredients().get(i).getQuantite() * quantite > plat.getListeIngredients().getListIngredients().get(i).getInventaire().getQuantite(plat.getListeIngredients().getListIngredients().get(i).getNom())){
+        for(int i =0 ;i<plat.getListeIngredients().getListIngredients().size();i++) {
+            try {
+                if (plat.getListeIngredients().getListIngredients().get(i).getQuantite() * quantite > plat.getListeIngredients().getListIngredients().get(i).getInventaire().getQuantite(plat.getListeIngredients().getListIngredients().get(i).getNom())) {
 
-                this.etat = PlatEtat.IMPOSSIBLE;
-            }
-            else {
+                    this.etat = PlatEtat.IMPOSSIBLE;
+                } else {
 
-                plat.getListeIngredients().getListIngredients().get(i).getInventaire().setQuantite(plat.getListeIngredients().getListIngredients().get(i).getNom(),plat.getListeIngredients().getListIngredients().get(i).getQuantite() - plat.getListeIngredients().getListIngredients().get(i).getQuantite() * quantite);
+                    try {
+                        plat.getListeIngredients().getListIngredients().get(i).getInventaire().setQuantite(plat.getListeIngredients().getListIngredients().get(i).getNom(), plat.getListeIngredients().getListIngredients().get(i).getQuantite() - plat.getListeIngredients().getListIngredients().get(i).getQuantite() * quantite);
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+
+                }
+            }catch (Exception e)
+            {
+                System.out.println(e.getMessage());
             }
+        }
 
 
         }
 
-    }
+
 
     /**
      * Surcharge de la methode toString pour pouvoir afficher les informations du plat choisi.

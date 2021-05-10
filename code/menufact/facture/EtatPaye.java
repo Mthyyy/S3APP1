@@ -72,7 +72,7 @@ public class EtatPaye extends EtatFacture{
      * Surcharge de la methode selectionnerPlat.
      */
     @Override
-    public void selectionnerPlat() {
-
+    public void selectionnerPlat(PlatChoisi p) throws FactureException {
+    throw new FactureException("impossible la facture est payer");
     }
 }

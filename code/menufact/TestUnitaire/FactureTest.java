@@ -1,121 +1,135 @@
 package menufact.TestUnitaire;
 
+import ingredients.exceptions.IngredientException;
+import menufact.facture.*;
 import menufact.plats.PlatAuMenu;
 import menufact.plats.PlatChoisi;
 import org.junit.Assert;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class FactureTest {
+public class FactureTest {
 
     public PlatAuMenu plat1;
-    void initialiser()
+    public PlatChoisi platC1;
+    public Facture f;
+
+
+    void initialiser() {
+        f = new Facture("factureTest");
+        plat1 = new PlatAuMenu(1, "description", 10);
+
+        platC1 = new PlatChoisi(plat1, 1);
+
+    }
+
+
+    @org.junit.jupiter.api.Test
+    void OuvrirFacturePaye()
     {
-        PlatAuMenu plat1 = new PlatAuMenu(1,"description",10);
-
-    }
-
-    @org.junit.jupiter.api.Test
-    void associerClient() {
-    }
-
-    @org.junit.jupiter.api.Test
-    void sousTotal() {
-    }
-
-    @org.junit.jupiter.api.Test
-    void total() {
-    }
-
-    @org.junit.jupiter.api.Test
-    void payer() {
-    }
-
-    @org.junit.jupiter.api.Test
-    void fermer() {
-    }
-
-    @org.junit.jupiter.api.Test
-    void ouvrir() {
-    }
-
-    @org.junit.jupiter.api.Test
-    void getEtat() {
-    }
-
-    @org.junit.jupiter.api.Test
-    void ajoutePlat() {
         initialiser();
-        Assert.assertSame();
-
+        f.payer();
+        try {
+            f.getEtatFacture().ouvrir();
+        }catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            assertEquals("FactureException: On peut changer l'etat, la facture est payee",e.getMessage());
+        }
 
     }
 
     @org.junit.jupiter.api.Test
-    void retirerPlat() {
+    void OuvrirFactureFerme()
+    {
+        initialiser();
+
+        try {
+
+            assertEquals(FactureEtat.OUVERTE, f.getEtat());
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+
+        }
+
     }
 
     @org.junit.jupiter.api.Test
-    void selectionnerPlat() {
+    void sousTotal() throws IngredientException {
+
+
+        initialiser();
+        System.out.println(platC1);
+        f.ajoutePlat(platC1);
+        f.ajoutePlat(platC1);
+        f.ajoutePlat(platC1);
+
+        assertEquals(platC1.getPlat().getPrix() *3,f.sousTotal());
+
     }
 
     @org.junit.jupiter.api.Test
-    void setEtat() {
+    void total() throws IngredientException {
+        initialiser();
+        f.ajoutePlat(platC1);
+         assertEquals((double) platC1.getPlat().getPrix() +  (double)platC1.getPlat().getPrix()*f.getTVQ() +   (double) platC1.getPlat().getPrix()*f.getTPS(),f.total());
+
     }
 
     @org.junit.jupiter.api.Test
-    void setEtatFacture() {
+    void ajoutePlat() throws IngredientException {
+        initialiser();
+
+            f.ajoutePlat(platC1);
+
+
+        Assert.assertSame(platC1, f.getPlatchoisi().get(0));
+
     }
 
     @org.junit.jupiter.api.Test
-    void getDate() {
+    void retirerPlat() throws IngredientException {
+        initialiser();
+        try {
+            f.selectionnerPlat(platC1);
+            f.retirerPlat();
+        } catch (Exception e) {
+            e.getMessage();
+        }
+
+        for (int i = 0; i < f.getPlatchoisi().size(); i++) {
+            assertNotEquals(platC1, f.getPlatchoisi().get(i));
+        }
     }
 
     @org.junit.jupiter.api.Test
-    void setDate() {
-    }
+    void selectionnerPlat1() throws IngredientException {
+        initialiser();
 
-    @org.junit.jupiter.api.Test
-    void getDescription() {
-    }
+        try {
+            f.getEtatFacture().selectionnerPlat(platC1);
+        }
+        catch (Exception e )
+        {
+            System.out.println(e.getMessage());
+        }
 
-    @org.junit.jupiter.api.Test
-    void setDescription() {
+        assertEquals(platC1, f.getPlatSelectionner());
     }
-
     @org.junit.jupiter.api.Test
-    void getPlatchoisi() {
-    }
+    void selectionnerPlat2() throws IngredientException {
+        initialiser();
 
-    @org.junit.jupiter.api.Test
-    void setPlatchoisi() {
-    }
+        f.payer();
+        try {
+            f.getEtatFacture().selectionnerPlat(platC1);
+            assertEquals(platC1, f.getPlatSelectionner());
+        }
+        catch (Exception e )
+        {
+            System.out.println(e.getMessage());
+        }
 
-    @org.junit.jupiter.api.Test
-    void getCourant() {
-    }
-
-    @org.junit.jupiter.api.Test
-    void setCourant() {
-    }
-
-    @org.junit.jupiter.api.Test
-    void getClient() {
-    }
-
-    @org.junit.jupiter.api.Test
-    void setClient() {
-    }
-
-    @org.junit.jupiter.api.Test
-    void getEtatFacture() {
-    }
-
-    @org.junit.jupiter.api.Test
-    void getTPS() {
-    }
-
-    @org.junit.jupiter.api.Test
-    void getTVQ() {
     }
 }

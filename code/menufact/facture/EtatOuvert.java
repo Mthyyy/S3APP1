@@ -60,14 +60,14 @@ public class EtatOuvert extends EtatFacture{
      */
     @Override
     public void retirerPlat() {
-
+        facture.getPlatchoisi().remove(facture.getPlatSelectionner());
     }
 
     /**
      * Surcharge de la methode selectionnerPlat.
      */
     @Override
-    public void selectionnerPlat() {
-
+    public void selectionnerPlat(PlatChoisi p) {
+        facture.selectionnerPlat(p);
     }
 }

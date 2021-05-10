@@ -60,5 +60,5 @@ public abstract class EtatFacture {
     /**
      * Methode qui permet de selectionner un plat
      */
-    public abstract void selectionnerPlat();
+    public abstract void selectionnerPlat(PlatChoisi p) throws FactureException;
 }
