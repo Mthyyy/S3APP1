@@ -1,6 +1,6 @@
 package menufact.plats;
 
-public class  ConcreteFactoryPlat extends FactoryPlats{
+public class  ConcreteFactoryPlat implements FactoryPlats{
 
     public PlatAuMenu creerPlat(int code, String description, double prix){
         return new PlatAuMenu(code, description, prix);
