@@ -4,13 +4,28 @@ import ingredients.exceptions.IngredientException;
 
 import java.util.ArrayList;
 
+/**
+ * Classe Abstraite des Inventaires des Ingrédients
+ * @author Mathieu Lefebvre
+ * @version 1.0
+ */
 public abstract class IngredientInventaire {
 
     protected static ArrayList<Ingredient> listIngredient;
+
+    /**
+     * Constructeur
+     */
     public  IngredientInventaire() {
         listIngredient = new ArrayList<Ingredient>();
     }
 
+    /**
+     * Retourne la quantité disponible de l'ingrédients
+     * @param nom nom de l'ingrédient
+     * @return la quantié d'ingrédient
+     * @throws IngredientException si le nom en parametre est introuvable
+     */
     public int getQuantite(String nom) throws IngredientException {
         boolean ingredientTrouver = false;
 
@@ -26,6 +41,12 @@ public abstract class IngredientInventaire {
         return 0;
     }
 
+    /**
+     * Set la quantié de l'ingrédient présent dans L'inventaire
+     * @param nom nom de l'ingrédient
+     * @param quantite quantité de l'ingrédients
+     * @throws IngredientException si le nom en parametre est introuvable
+     */
     public void setQuantite(String nom, int quantite) throws IngredientException{
 
         boolean ingredientTrouver = false;
@@ -45,6 +66,12 @@ public abstract class IngredientInventaire {
 
     }
 
+    /**
+     * Retourne un ingrédients
+     * @param nom le nom de l'ingrédients voulue
+     * @return un ingrédient
+     * @throws IngredientException si le nom en parametre est introuvable
+     */
     public static Ingredient getIngredient(String nom) throws IngredientException {
         boolean ingredientTrouver = false;
 

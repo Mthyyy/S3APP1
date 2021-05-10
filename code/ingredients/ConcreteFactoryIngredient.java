@@ -2,7 +2,11 @@ package ingredients;
 
 import ingredients.exceptions.IngredientException;
 
+/**
+ * Instance concrete de Factory Ingredient
+ */
 public class ConcreteFactoryIngredient extends FactoryIngredient {
+
 
     @Override
     public Ingredient creerIngredient(String nom, String description, int quantite, EtatIngredient etat, TypeIngredient type) throws IngredientException {
