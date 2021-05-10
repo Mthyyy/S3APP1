@@ -6,13 +6,7 @@ import menufact.facture.exceptions.FactureException;
 /**
  * Createur d'ingrédient
  */
-public abstract class FactoryIngredient {
-
-    public FactoryIngredient()
-    {
-
-    }
-
+interface FactoryIngredient {
     /**
      * Creer un ingrédient
      * @param nom nom de l'ingrédient
