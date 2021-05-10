@@ -1,5 +1,8 @@
 package ingredients;
 
+/**
+ * Ingredient de type Viande
+ */
 public class Viande extends Ingredient{
 
 

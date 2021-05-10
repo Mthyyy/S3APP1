@@ -2,6 +2,9 @@ package ingredients;
 
 import java.util.ArrayList;
 
+/**
+ * Inventaire des produits laitier
+ */
 public class LaitierInventaire extends IngredientInventaire  {
     private static LaitierInventaire instance;
 

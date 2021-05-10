@@ -1,5 +1,8 @@
 package ingredients;
 
+/**
+ * produit laitier
+ */
 public class Laitier extends Ingredient{
     public Laitier(String nom, String description,int quantite,EtatIngredient etat) {
         this.nom = nom;

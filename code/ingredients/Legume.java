@@ -1,5 +1,8 @@
 package ingredients;
 
+/**
+ * Legume
+ */
 public class Legume extends Ingredient{
     public Legume(String nom, String description,int quantite,EtatIngredient etat) {
         this.nom = nom;

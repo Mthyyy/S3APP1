@@ -39,8 +39,22 @@ public class ViandeInventaire extends IngredientInventaire{
      * @param etat EtatIngredient solide ou liquide
      */
     public static void ajouterIngredient(String nom, String description, int quantite, EtatIngredient etat) {
-        ConcreteFactoryIngredient factory = new ConcreteFactoryIngredient();
-        listIngredient.add(factory.creerViande(nom,description,quantite,etat));
+
+        boolean ingredientTrouver = false;
+        for(int i = 0 ; i < listIngredient.size();i++)
+        {
+            if(listIngredient.get(i).getNom() == nom)
+            {
+                ingredientTrouver = true;
+                System.out.println("Erreur Ingredient deja present");
+            }
+        }
+        if(!ingredientTrouver)
+        {
+            ConcreteFactoryIngredient factory = new ConcreteFactoryIngredient();
+            listIngredient.add(factory.creerViande(nom,description,quantite,etat));
+        }
+
     }
 
 
