@@ -115,6 +115,27 @@ public class Menu {
     }
 
     /**
+     * Permet d'aller chercher un plat dans le menu selon son code.
+     * @param id code du plat a aller chercher
+     * @return retourne le plat desire
+     */
+    public PlatAuMenu getPlat(int id){
+
+        for(int i = 0; i < plat.size(); i++){
+            if(plat.get(i).getCode() == id){
+                return plat.get(i);
+            }
+        }
+
+        System.out.println("Aucun plat ne correspond a ce code");
+        return null;
+    }
+
+    public void setDescription(String description){
+        this.description = description;
+    }
+
+    /**
      * Surcharge de la methode toString pour pouvoir afficher les informations du menu.
      * @return String contenant les informations du menu
      */
