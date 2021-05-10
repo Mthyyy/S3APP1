@@ -6,6 +6,8 @@ public class Epice extends Ingredient{
         this.description = description;
         this.quantite = quantite;
         this.etat = etat;
+        this.type = TypeIngredient.EPICE;
+        this.inventaire = EpiceInventaire.getInstance();
     }
 
     @Override

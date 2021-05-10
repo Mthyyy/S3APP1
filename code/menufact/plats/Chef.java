@@ -35,7 +35,7 @@ public class Chef {
      * @param p contient le plat a ajouter au chef
      */
     public void ajouterPlat(PlatChoisi p){
-        listePlats.add(p);
+        if(p.getEtat() != PlatEtat.IMPOSSIBLE)listePlats.add(p);
     }
 
     /**

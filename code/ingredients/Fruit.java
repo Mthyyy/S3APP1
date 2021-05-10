@@ -6,6 +6,8 @@ public class Fruit extends Ingredient{
         this.description = description;
         this.quantite = quantite;
         this.etat = etat;
+        this.type = TypeIngredient.FRUIT;
+        this.inventaire = FruitInventaire.getInstance();
     }
 
     @Override

@@ -5,7 +5,8 @@ public abstract class Ingredient {
     protected String description;
     protected int quantite;
     protected EtatIngredient etat;
-
+    protected TypeIngredient type;
+    protected IngredientInventaire inventaire;
     public Ingredient()
     {
 
@@ -24,6 +25,16 @@ public abstract class Ingredient {
         return quantite;
     }
 
+    public TypeIngredient getType(){return type;};
+    public EtatIngredient getEtat()
+    {
+        return etat;
+    }
+
+    public void setQuantite(int q)
+    { quantite = q;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -32,4 +43,8 @@ public abstract class Ingredient {
         this.description = description;
     }
 
+    public IngredientInventaire getInventaire()
+    {
+        return inventaire;
+    }
 }

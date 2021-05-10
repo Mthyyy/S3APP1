@@ -1,22 +1,30 @@
 package menufact;
 
-import ingredients.Liquide;
-import ingredients.Solide;
-import ingredients.TypeIngredient;
+import ingredients.*;
 import ingredients.exceptions.IngredientException;
 import menufact.plats.*;
 
 public class MyTestMenuFact2 {
 
     public static void main(String[] args) throws IngredientException {
+        ViandeInventaire.getInstance();
+        LegumeInventaire.getInstance();
+
+
+        ViandeInventaire.ajouterIngredient("poulet","allo",100,Solide.getInstance());
+        LegumeInventaire.ajouterIngredient("patate","allo",50,Solide.getInstance());
+
+
+
+
 
         ListeIngredients liste = new ListeIngredients();
 
-        liste.ajouterIngredient("poulet","allo,",50,Liquide.getInstance(), TypeIngredient.VIANDE);
+        liste.ajouterIngredient(ViandeInventaire.getIngredient("poulet"),50);
 
         ListeIngredients liste2 = new ListeIngredients();
 
-        liste2.ajouterIngredient("patates","allo,",50,Solide.getInstance(), TypeIngredient.LEGUME);
+        liste2.ajouterIngredient(LegumeInventaire.getIngredient("patate"),50);
 
         System.out.println(liste.getListIngredients().get(0));
 
@@ -35,7 +43,7 @@ public class MyTestMenuFact2 {
 
         System.out.println(pm2);
 
-        PlatChoisi p1 = new PlatChoisi(pm1, 1);
+        PlatChoisi p1 = new PlatChoisi(pm1, 3);
         PlatChoisi p2 = new PlatChoisi(pm2, 1);
 
         chef.ajouterServeur(serveur1);

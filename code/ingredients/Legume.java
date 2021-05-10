@@ -6,6 +6,8 @@ public class Legume extends Ingredient{
         this.description = description;
         this.quantite = quantite;
         this.etat = etat;
+        this.type = TypeIngredient.LEGUME;
+        this.inventaire = LegumeInventaire.getInstance();
     }
 
     @Override

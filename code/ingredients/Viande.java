@@ -1,11 +1,15 @@
 package ingredients;
 
 public class Viande extends Ingredient{
+
+
     public Viande(String nom, String description,int quantite, EtatIngredient etat) {
             this.nom = nom;
             this.description = description;
             this.quantite = quantite;
             this.etat = etat;
+            this.type = TypeIngredient.VIANDE;
+            this.inventaire = ViandeInventaire.getInstance();
     }
 
 

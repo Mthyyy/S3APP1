@@ -6,6 +6,8 @@ public class Laitier extends Ingredient{
         this.description = description;
         this.quantite = quantite;
         this.etat = etat;
+        this.type = TypeIngredient.LAITIER;
+        this.inventaire = LaitierInventaire.getInstance();
     }
 
     @Override

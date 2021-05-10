@@ -1,5 +1,7 @@
 package menufact.plats;
 
+import ingredients.Ingredient;
+import ingredients.exceptions.IngredientException;
 import menufact.plats.PlatAuMenu;
 
 /**
@@ -31,10 +33,25 @@ public class PlatChoisi {
      * @param plat contient le PlatAuMenu
      * @param quantite contient la quantite
      */
-    public PlatChoisi(PlatAuMenu plat, int quantite) {
+    public PlatChoisi(PlatAuMenu plat, int quantite) throws IngredientException {
         this.plat = plat;
         this.quantite = quantite;
         this.etat = PlatEtat.COMMANDE;
+
+        for(int i =0 ;i<plat.getListeIngredients().getListIngredients().size();i++)
+        {
+            if(plat.getListeIngredients().getListIngredients().get(i).getQuantite() * quantite > plat.getListeIngredients().getListIngredients().get(i).getInventaire().getQuantite(plat.getListeIngredients().getListIngredients().get(i).getNom())){
+
+                this.etat = PlatEtat.IMPOSSIBLE;
+            }
+            else {
+
+                plat.getListeIngredients().getListIngredients().get(i).getInventaire().setQuantite(plat.getListeIngredients().getListIngredients().get(i).getNom(),plat.getListeIngredients().getListIngredients().get(i).getQuantite() - plat.getListeIngredients().getListIngredients().get(i).getQuantite() * quantite);
+            }
+
+
+        }
+
     }
 
     /**
@@ -60,6 +77,10 @@ public class PlatChoisi {
 
     public void setEtat(PlatEtat etat){
         this.etat = etat;
+    }
+
+    public PlatEtat getEtat() {
+        return etat;
     }
 
     public PlatAuMenu getPlat() {
