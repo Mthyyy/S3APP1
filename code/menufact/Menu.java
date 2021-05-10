@@ -73,6 +73,28 @@ public class Menu {
     }
 
     /**
+     * Permet de retirer le plat courant du menu
+     */
+    void retirerCourant(){
+        plat.remove(plat.get(courant));
+    }
+
+    /**
+     * Permet de retirer un plat du menu en fonction de son code
+     * @param id code du plat
+     */
+    void retirerPlat(int id) throws MenuException{
+        for(int i = 0; i < plat.size(); i++){
+            if(plat.get(i).getCode() == id){
+                plat.remove(plat.get(i));
+                return;
+            }
+        }
+
+        throw new MenuException("Le plat n'est pas au menu");
+    }
+
+    /**
      * Setter de la position, soit de la variable courant.
      * @param i index du plat courant
      */
@@ -133,6 +155,10 @@ public class Menu {
 
     public void setDescription(String description){
         this.description = description;
+    }
+
+    public String getDescription(){
+        return this.description;
     }
 
     /**
