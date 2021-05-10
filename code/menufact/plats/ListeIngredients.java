@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class ListeIngredients {
 
     private ArrayList<Ingredient> lesIngedients;
-    private FactoryIngredient factory;
+    private ConcreteFactoryIngredient factory;
 
     /**
      * constructeur

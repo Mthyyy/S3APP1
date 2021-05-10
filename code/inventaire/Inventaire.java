@@ -3,6 +3,7 @@ package inventaire;
 import ingredients.Ingredient;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Inventaire {
     private ArrayList<Ingredient> lesIngredients = new ArrayList<Ingredient>();

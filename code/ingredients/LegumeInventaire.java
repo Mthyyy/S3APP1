@@ -1,5 +1,7 @@
 package ingredients;
 
+import ingredients.exceptions.IngredientException;
+
 import java.util.ArrayList;
 
 public class LegumeInventaire extends IngredientInventaire {
@@ -33,7 +35,23 @@ public class LegumeInventaire extends IngredientInventaire {
      * @param etat EtatIngredient solide ou liquide
      */
     public static void ajouterIngredient(String nom, String description, int quantite, EtatIngredient etat) {
-        ConcreteFactoryIngredient factory = new ConcreteFactoryIngredient();
-        listIngredient.add(factory.creerLegume(nom,description,quantite,etat));
+        try
+        {
+            if(quantite <=0)
+            {
+                throw new IngredientException("On ne peut pas avoir une quantite null ou negative d'ingredient");
+            }
+
+            ConcreteFactoryIngredient factory = new ConcreteFactoryIngredient();
+            listIngredient.add(factory.creerLegume(nom,description,quantite,etat));
+        }
+
+        catch (IngredientException e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public ArrayList<Ingredient> getListIngredient(){
+        return listIngredient;
     }
 }

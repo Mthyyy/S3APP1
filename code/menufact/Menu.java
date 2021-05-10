@@ -19,7 +19,6 @@ public class Menu {
      * description contient la description du menu.
      */
     private String description;
-
     /**
      * courant contient l'index du plat qui est selectionne.
      */
@@ -47,6 +46,7 @@ public class Menu {
     private Menu(String description) {
         this.description = description;
         factory = new ConcreteFactoryPlat();
+        courant = 0;
 
     }
 
@@ -84,14 +84,22 @@ public class Menu {
      * @param id code du plat
      */
     void retirerPlat(int id) throws MenuException{
-        for(int i = 0; i < plat.size(); i++){
-            if(plat.get(i).getCode() == id){
-                plat.remove(plat.get(i));
-                return;
+
+        try{
+            for(int i = 0; i < plat.size(); i++){
+                if(plat.get(i).getCode() == id){
+                    plat.remove(plat.get(i));
+                    return;
+                }
             }
+
+            throw new MenuException("Le plat n'est pas au menu");
         }
 
-        throw new MenuException("Le plat n'est pas au menu");
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+
     }
 
     /**
@@ -118,10 +126,17 @@ public class Menu {
      */
     public void positionSuivante() throws MenuException
     {
-        if (courant+1 >= plat.size())
-            throw new MenuException("On depasse le nombre maximale de plats.");
-        else
-            courant++;
+        try{
+            if (courant+1 >= plat.size())
+                throw new MenuException("On depasse le nombre maximale de plats.");
+            else
+                courant++;
+        }
+
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
     }
 
     /**
@@ -130,10 +145,17 @@ public class Menu {
      */
     public void positionPrecedente() throws MenuException
     {
-        if (courant-1 < 0)
-            throw new MenuException("On depasse le nombre minimale de plats");
-        else
-            courant--;
+        try{
+            if (courant-1 < 0)
+                throw new MenuException("On depasse le nombre minimale de plats");
+            else
+                courant--;
+        }
+
+        catch (MenuException e){
+            System.out.println(e.getMessage());
+        }
+
     }
 
     /**
@@ -159,6 +181,10 @@ public class Menu {
 
     public String getDescription(){
         return this.description;
+    }
+
+    public int getCourant(){
+        return courant;
     }
 
     /**

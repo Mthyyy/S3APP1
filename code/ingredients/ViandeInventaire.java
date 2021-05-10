@@ -1,5 +1,7 @@
 package ingredients;
 
+import ingredients.exceptions.IngredientException;
+
 import java.util.ArrayList;
 
 /**
@@ -38,25 +40,39 @@ public class ViandeInventaire extends IngredientInventaire{
      * @param quantite quantité de l'ingrédient
      * @param etat EtatIngredient solide ou liquide
      */
-    public static void ajouterIngredient(String nom, String description, int quantite, EtatIngredient etat) {
+    public static void ajouterIngredient(String nom, String description, int quantite, EtatIngredient etat) throws IngredientException {
 
-        boolean ingredientTrouver = false;
-        for(int i = 0 ; i < listIngredient.size();i++)
-        {
-            if(listIngredient.get(i).getNom() == nom)
+        try{
+
+            if(quantite <= 0){
+                throw new IngredientException("On ne peut pas avoir une quantite null ou negative d'ingredient");
+            }
+            boolean ingredientTrouver = false;
+            for(int i = 0 ; i < listIngredient.size();i++)
             {
-                ingredientTrouver = true;
-                System.out.println("Erreur Ingredient deja present");
+                if(listIngredient.get(i).getNom() == nom)
+                {
+                    ingredientTrouver = true;
+                    System.out.println("Erreur Ingredient deja present");
+                }
+            }
+            if(!ingredientTrouver)
+            {
+                ConcreteFactoryIngredient factory = new ConcreteFactoryIngredient();
+                listIngredient.add(factory.creerViande(nom,description,quantite,etat));
             }
         }
-        if(!ingredientTrouver)
-        {
-            ConcreteFactoryIngredient factory = new ConcreteFactoryIngredient();
-            listIngredient.add(factory.creerViande(nom,description,quantite,etat));
+
+        catch(IngredientException e){
+            System.out.println(e.getMessage());
         }
+
 
     }
 
+    public ArrayList<Ingredient> getListIngredient(){
+        return listIngredient;
+    }
 
 
 }

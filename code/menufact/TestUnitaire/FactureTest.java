@@ -46,7 +46,7 @@ class FactureTest {
     @org.junit.jupiter.api.Test
     void ajoutePlat() {
         initialiser();
-        Assert.assertSame();
+        //Assert.assertSame();
 
 
     }

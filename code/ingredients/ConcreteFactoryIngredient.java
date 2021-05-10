@@ -5,7 +5,7 @@ import ingredients.exceptions.IngredientException;
 /**
  * Instance concrete de Factory Ingredient
  */
-public class ConcreteFactoryIngredient extends FactoryIngredient {
+public class ConcreteFactoryIngredient implements FactoryIngredient {
 
 
     @Override
