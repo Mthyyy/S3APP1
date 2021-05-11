@@ -40,7 +40,7 @@ public class ViandeInventaire extends IngredientInventaire{
      * @param quantite quantité de l'ingrédient
      * @param etat EtatIngredient solide ou liquide
      */
-    public static void ajouterIngredient(String nom, String description, int quantite, EtatIngredient etat) throws IngredientException {
+    public static void ajouterIngredient(String nom, String description, int quantite, EtatIngredient etat)  {
 
         try{
 

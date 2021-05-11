@@ -37,7 +37,7 @@ public class PlatChoisi {
         this.plat = plat;
         this.quantite = quantite;
         this.etat = PlatEtat.COMMANDE;
-        
+
         for(int i =0 ;i<plat.getListeIngredients().getListIngredients().size();i++) {
             try {
 
@@ -47,6 +47,7 @@ public class PlatChoisi {
                 } else {
 
                     try {
+
                         plat.getListeIngredients().getListIngredients().get(i).getInventaire().setQuantite(plat.getListeIngredients().getListIngredients().get(i).getNom(), plat.getListeIngredients().getListIngredients().get(i).getInventaire().getQuantite(plat.getListeIngredients().getListIngredients().get(i).getNom()) - plat.getListeIngredients().getListIngredients().get(i).getQuantite() * quantite);
 
                     } catch (Exception e) {

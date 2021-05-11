@@ -126,6 +126,7 @@ public class MenuFact02 {
 
         System.out.println(vue);
         //facture.ouvrir();
+        System.out.println(vue.genererFacture());
 
     }
 
