@@ -5,6 +5,8 @@ import menufact.plats.ConcreteFactoryPlat;
 import menufact.plats.PlatAuMenu;
 import menufact.plats.FactoryPlats;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -202,5 +204,19 @@ public class Menu {
                 ", courant=" + courant +
                 ", plat=" + "\n" + plat +
                 '}';
+    }
+
+    public void ecrireFichier(){
+        try {
+            FileWriter fichier = new FileWriter("FactureEtMenu.txt");
+
+            fichier.append(this.toString());
+            fichier.append("\n\n");
+            fichier.close();
+
+        } catch (IOException e) {
+            System.out.println("Incapable d'ouvrir le fichier");
+            e.printStackTrace();
+        }
     }
 }

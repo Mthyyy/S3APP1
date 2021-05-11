@@ -1,0 +1,6 @@
+menufact.Menu{description='Menu du restaurant', courant=1, plat=
+[PlatAuMenu{code=1, description='frite', prix=11.25}  200g de poulet 400g de patate 100g de Basilic.
+, PlatSante{kcal=3.0, chol=200.0, gras=45.0} PlatAuMenu{code=3, description='Poulet au basilic', prix=20.0}  200g de poulet 400g de patate 100g de Basilic.
+, PlatEnfant{proportion=0.5} PlatAuMenu{code=2, description='poutine', prix=16.25}  900g de Fromage 400ml de Pomme 300g de Basilic.
+]}
+

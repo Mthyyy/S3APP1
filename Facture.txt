@@ -1,0 +1,10 @@
+Facture generee.
+Date:Mon May 10 22:13:37 EDT 2021
+Description: Table 3
+Client:Med
+Les plats commandes:
+Seq   Plat         Prix   Quantite
+1     frite  11.25      1
+          TPS:               0.05
+          TVQ:               0.095
+          Le total est de:   12.88125

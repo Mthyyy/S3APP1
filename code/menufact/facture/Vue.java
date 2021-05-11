@@ -1,8 +1,13 @@
 package menufact.facture;
 
+import menufact.Menu;
 import menufact.plats.PlatChoisi;
 
+import java.io.FileWriter;
+import java.io.Writer;
 import java.lang.constant.Constable;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * La classe Vue est la vue dans le modele de conception MVC. Elle permet de faire l'affichage des informations pertinentes.
@@ -14,6 +19,8 @@ public class Vue{
      * f contient la facture qui a les informations que la vue doit afficher
      */
     Facture f;
+
+    Menu menu;
 
     /**
      * Constructeur de base, sans parametres, de la classe.
@@ -34,7 +41,7 @@ public class Vue{
      * Methode qui permet de generer la facture avec toutes les informations pertinentes
      * @return String qui contient toutes les informations de la facture
      */
-    public String genererFacture() throws Exception{
+    public String genererFacture(){
         String lesPlats = new String();
         String factureGenere = new String();
 
@@ -88,10 +95,28 @@ public class Vue{
                 ", client=" + f.getClient() +
                 ", TPS=" + f.getTPS() +
                 ", TVQ=" + f.getTVQ() +
+                f.getEtatFacture().affiche() +
                 '}';
     }
 
     public void setFacture(Facture f){
         this.f = f;
+    }
+
+    public void setMenu(Menu f){
+        this.menu = menu;
+    }
+
+    public void ecrireFichier(){
+        try {
+            FileWriter fichier = new FileWriter("FactureEtMenu.txt");
+
+            fichier.write(genererFacture());
+            fichier.close();
+
+        } catch (IOException e) {
+            System.out.println("Incapable d'ouvrir le fichier");
+            e.printStackTrace();
+        }
     }
 }

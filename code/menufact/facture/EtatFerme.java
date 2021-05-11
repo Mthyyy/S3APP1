@@ -27,6 +27,7 @@ public class EtatFerme extends EtatFacture{
     @Override
     public void payer() {
         facture.setEtatFacture(new EtatPaye(facture));
+        facture.setEtat(FactureEtat.PAYEE);
     }
 
     /**
@@ -43,6 +44,7 @@ public class EtatFerme extends EtatFacture{
     @Override
     public void ouvrir() {
         facture.setEtatFacture(new EtatOuvert(facture));
+        facture.setEtat(FactureEtat.OUVERTE);
     }
 
     /**
@@ -53,7 +55,13 @@ public class EtatFerme extends EtatFacture{
      */
     @Override
     public void ajoutePlat(PlatChoisi p, ArrayList<PlatChoisi> platchoisi) throws FactureException {
-        throw new FactureException("On peut ajouter un plat seulement sur une facture OUVERTE.");
+        try{
+            throw new FactureException("On peut ajouter un plat seulement sur une facture OUVERTE.");
+        }
+
+        catch(FactureException e){
+            System.out.println(e.getMessage());
+        }
     }
 
     /**
@@ -61,14 +69,32 @@ public class EtatFerme extends EtatFacture{
      */
     @Override
     public void retirerPlat() throws FactureException {
-        throw new FactureException("Impossible de slectionner un plat dans une facture ferme");
+        try{
+            throw new FactureException("On peut retirer un plat seulement sur une facture OUVERTE.");
+        }
+
+        catch(FactureException e){
+            System.out.println(e.getMessage());
+        }
     }
 
     /**
      * Surcharge de la methode selectionnerPlat.
      */
     @Override
-    public void selectionnerPlat(PlatChoisi p) throws FactureException {
-        throw new FactureException("Impossible de slectionner un plat dans une facture ferme");
+    public void selectionnerPlat(PlatChoisi p) {
+        try{
+            throw new FactureException("impossible la facture est fermee");
+        }
+
+        catch (FactureException e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Override
+    public String affiche(){
+        String stream = ", Sous-total= " + Double.toString(facture.sousTotal()) +", Total= " + Double.toString(facture.total());
+        return stream;
     }
 }
