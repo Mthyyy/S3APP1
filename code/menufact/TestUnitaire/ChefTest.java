@@ -34,6 +34,19 @@ class ChefTest {
     }
 
     @Test
+    void retirerServeur() {
+        initialiser();
+
+        Serveur serveur2 = new Serveur();
+
+        chef.ajouterServeur(serveur);
+        chef.ajouterServeur(serveur2);
+        chef.retirerServeur(serveur);
+
+        assertEquals(serveur2 ,chef.listeServeurs.get(0));
+    }
+
+    @Test
     void preparer() {
         initialiser();
         chef.ajouterPlat(platc1);

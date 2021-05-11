@@ -73,21 +73,19 @@ public class PlatChoisi {
         }
 
 
-        }
+    }
 
-        public void retirerPlat(){
-            if(etat != PlatEtat.IMPOSSIBLE){
-                for(int i =0 ;i<plat.getListeIngredients().getListIngredients().size();i++) {
-                    try {
-
-                        plat.getListeIngredients().getListIngredients().get(i).getInventaire().setQuantite(plat.getListeIngredients().getListIngredients().get(i).getNom(), plat.getListeIngredients().getListIngredients().get(i).getInventaire().getQuantite(plat.getListeIngredients().getListIngredients().get(i).getNom()) + plat.getListeIngredients().getListIngredients().get(i).getQuantite() * quantite);
-
-                    } catch (Exception e) {
+    public void retirerPlat(){
+        if(etat != PlatEtat.IMPOSSIBLE){
+            for(int i =0 ;i<plat.getListeIngredients().getListIngredients().size();i++) {
+                try {
+                    plat.getListeIngredients().getListIngredients().get(i).getInventaire().setQuantite(plat.getListeIngredients().getListIngredients().get(i).getNom(), plat.getListeIngredients().getListIngredients().get(i).getInventaire().getQuantite(plat.getListeIngredients().getListIngredients().get(i).getNom()) + plat.getListeIngredients().getListIngredients().get(i).getQuantite() * quantite);
+                } catch (Exception e) {
                         System.out.println(e.getMessage());
-                    }
                 }
             }
         }
+    }
 
 
 
@@ -122,7 +120,7 @@ public class PlatChoisi {
 
                     try {
 
-                        plat.getListeIngredients().getListIngredients().get(i).getInventaire().setQuantite(plat.getListeIngredients().getListIngredients().get(i).getNom(), plat.getListeIngredients().getListIngredients().get(i).getInventaire().getQuantite(plat.getListeIngredients().getListIngredients().get(i).getNom()) - plat.getListeIngredients().getListIngredients().get(i).getQuantite() * quantite);
+                        plat.getListeIngredients().getListIngredients().get(i).getInventaire().setQuantite(plat.getListeIngredients().getListIngredients().get(i).getNom(), plat.getListeIngredients().getListIngredients().get(i).getInventaire().getQuantite(plat.getListeIngredients().getListIngredients().get(i).getNom()) - plat.getListeIngredients().getListIngredients().get(i).getQuantite() * this.quantite);
 
                     } catch (Exception e) {
                         System.out.println(e.getMessage());

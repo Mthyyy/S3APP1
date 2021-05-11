@@ -2,9 +2,11 @@ package menufact.TestUnitaire;
 
 import ingredients.Solide;
 import ingredients.ViandeInventaire;
+import menufact.plats.ConcreteFactoryPlat;
 import menufact.plats.ListeIngredients;
 import menufact.plats.PlatAuMenu;
 import menufact.plats.PlatChoisi;
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -57,5 +59,68 @@ class PlatChoisiTest {
         }
 
 
+    }
+
+    @Test
+    public void testRetirerPlat() throws Exception{
+        ConcreteFactoryPlat factory = new ConcreteFactoryPlat();
+        PlatAuMenu pm= factory.creerPlat(1, "Poulet", 10.25);
+
+        ViandeInventaire.getInstance();
+        ViandeInventaire.ajouterIngredient("boeuf","allo",500,Solide.getInstance());
+
+        ListeIngredients liste = new ListeIngredients();
+
+        liste.ajouterIngredient(ViandeInventaire.getIngredient("boeuf"),200);
+
+        pm.setListeIngredients(liste);
+
+        PlatChoisi p = new PlatChoisi(pm, 1);
+
+        p.retirerPlat();
+
+        Assert.assertEquals(ViandeInventaire.getIngredient("boeuf").getQuantite(), 500);
+    }
+
+    @Test
+    public void testRetirerPlat2() throws Exception{
+        ConcreteFactoryPlat factory = new ConcreteFactoryPlat();
+        PlatAuMenu pm= factory.creerPlat(1, "boeuf", 10.25);
+
+        ViandeInventaire.getInstance();
+        ViandeInventaire.ajouterIngredient("boeuf","allo",1000,Solide.getInstance());
+
+        ListeIngredients liste = new ListeIngredients();
+
+        liste.ajouterIngredient(ViandeInventaire.getIngredient("boeuf"),500);
+
+        pm.setListeIngredients(liste);
+
+        PlatChoisi p = new PlatChoisi(pm, 1);
+
+        p.retirerPlat();
+
+        Assert.assertEquals(ViandeInventaire.getIngredient("boeuf").getQuantite(), 500);
+    }
+
+    @Test
+    public void testSetQte() throws Exception{
+        ConcreteFactoryPlat factory = new ConcreteFactoryPlat();
+        PlatAuMenu pm= factory.creerPlat(1, "boeuf", 10.25);
+
+        ViandeInventaire.getInstance();
+        ViandeInventaire.ajouterIngredient("boeuf","allo",1000,Solide.getInstance());
+
+        ListeIngredients liste = new ListeIngredients();
+
+        liste.ajouterIngredient(ViandeInventaire.getIngredient("boeuf"),500);
+
+        pm.setListeIngredients(liste);
+
+        PlatChoisi p = new PlatChoisi(pm, 1);
+
+        p.setQuantite(2);
+
+        Assert.assertEquals(ViandeInventaire.getIngredient("boeuf").getQuantite(), 0);
     }
 }

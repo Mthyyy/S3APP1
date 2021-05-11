@@ -117,4 +117,14 @@ public class FactureTest {
 
         assertEquals(platC1, f.getPlatSelectionner());
     }
+
+    @org.junit.jupiter.api.Test
+    void reinitialiser() throws IngredientException {
+        initialiser();
+
+        f.reinitialiser("Voici ma nouvelle description");
+
+        assertEquals("Voici ma nouvelle description", f.getDescription());
+        assertEquals(null, f.getPlatSelectionner());
+    }
 }

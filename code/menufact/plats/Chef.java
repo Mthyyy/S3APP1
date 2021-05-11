@@ -46,6 +46,23 @@ public class Chef {
         listeServeurs.add(s);
     }
 
+    public void retirerServeur(Serveur s){
+        try{
+            for(int i = 0; i < listeServeurs.size();i++){
+                if(listeServeurs.get(i) == s){
+                    listeServeurs.remove(i);
+                    return;
+                }
+            }
+
+            throw new Exception("Le serveur en figure pas sur la liste");
+        }
+
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+
     /**
      * Methode qui sert a notifier les serveurs.
      */
