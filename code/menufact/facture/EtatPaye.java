@@ -44,7 +44,13 @@ public class EtatPaye extends EtatFacture{
      */
     @Override
     public void ouvrir() throws FactureException{
-        throw new FactureException("On peut changer l'etat, la facture est payee");
+        try {
+            throw new FactureException("On peut changer l'etat, la facture est payee");
+        }
+
+        catch(FactureException e){
+            System.out.println(e.getMessage());
+        }
 
     }
 
@@ -55,8 +61,14 @@ public class EtatPaye extends EtatFacture{
      * @throws FactureException Si on essai d'ajouter un plat alors que la facture est payee
      */
     @Override
-    public void ajoutePlat(PlatChoisi p, ArrayList<PlatChoisi> platchoisi) throws FactureException{
-        throw new FactureException("On peut ajouter un plat seulement sur une facture OUVERTE.");
+    public void ajoutePlat(PlatChoisi p, ArrayList<PlatChoisi> platchoisi){
+        try{
+            throw new FactureException("On peut ajouter un plat seulement sur une facture OUVERTE.");
+        }
+
+        catch(FactureException e){
+            System.out.println(e.getMessage());
+        }
     }
 
     /**
@@ -65,7 +77,13 @@ public class EtatPaye extends EtatFacture{
      */
     @Override
     public void retirerPlat() throws FactureException{
-        throw new FactureException("On peut retirer un plat seulement sur une facture OUVERTE.");
+        try{
+            throw new FactureException("On peut retirer un plat seulement sur une facture OUVERTE.");
+        }
+
+        catch(FactureException e){
+            System.out.println(e.getMessage());
+        }
     }
 
     /**
@@ -73,6 +91,19 @@ public class EtatPaye extends EtatFacture{
      */
     @Override
     public void selectionnerPlat(PlatChoisi p) throws FactureException {
-    throw new FactureException("impossible la facture est payer");
+        try{
+            throw new FactureException("impossible la facture est payee");
+        }
+
+        catch (FactureException e){
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    @Override
+    public String affiche(){
+        String stream = ", Sous-total= " + Double.toString(facture.sousTotal()) +", Total= " + Double.toString(facture.total());
+        return stream;
     }
 }

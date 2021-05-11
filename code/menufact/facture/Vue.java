@@ -88,6 +88,7 @@ public class Vue{
                 ", client=" + f.getClient() +
                 ", TPS=" + f.getTPS() +
                 ", TVQ=" + f.getTVQ() +
+                f.getEtatFacture().affiche() +
                 '}';
     }
 

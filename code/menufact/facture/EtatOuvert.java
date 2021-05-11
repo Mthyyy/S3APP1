@@ -27,6 +27,7 @@ public class EtatOuvert extends EtatFacture{
     @Override
     public void payer() {
         facture.setEtatFacture(new EtatPaye(facture));
+        facture.setEtat(FactureEtat.PAYEE);
     }
 
     /**
@@ -35,6 +36,7 @@ public class EtatOuvert extends EtatFacture{
     @Override
     public void fermer() {
         facture.setEtatFacture(new EtatFerme(facture));
+        facture.setEtat(FactureEtat.FERMEE);
     }
 
     /**
@@ -70,4 +72,11 @@ public class EtatOuvert extends EtatFacture{
     public void selectionnerPlat(PlatChoisi p) {
         facture.selectionnerPlat(p);
     }
+
+    @Override
+    public String affiche() {
+        return null;
+    }
+
+
 }

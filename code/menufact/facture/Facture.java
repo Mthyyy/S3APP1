@@ -133,7 +133,6 @@ public class Facture {
 
     /**
      * Permet de retirer un plat de la facture
-     * @param code code associe au plat
      */
     public void retirerPlat() throws FactureException {
         etatFacture.retirerPlat();

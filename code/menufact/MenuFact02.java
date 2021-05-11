@@ -86,9 +86,9 @@ public class MenuFact02 {
 
         chef.preparer();
 
-        System.out.println(p1);
-        System.out.println(p2);
-        System.out.println(p3);
+        //System.out.println(p1);
+        //System.out.println(p2);
+        //System.out.println(p3);
 
         chef.termine();
 
@@ -96,7 +96,7 @@ public class MenuFact02 {
         //System.out.println(p2);
         //System.out.println(p3);
 
-        Facture facture = new Facture("Facture du client");
+        Facture facture = new Facture("Table 3");
         Vue vue = new Vue();
         ControllerFactures controller = new ControllerFactures(facture, vue);
         controller.connectionVue();
@@ -110,8 +110,20 @@ public class MenuFact02 {
         facture.ajoutePlat(p2);
         facture.ajoutePlat(p3);
 
+        PlatChoisi p4 = new PlatChoisi(pm1, 3);
+
+        controller.fermerFacture();
+
+        System.out.println(vue);
+
         //System.out.println(vue.genererFacture());
         //System.out.println(vue);
+
+        controller.payerFacture();
+
+        System.out.println(vue);
+        //facture.ouvrir();
+
     }
 
 
