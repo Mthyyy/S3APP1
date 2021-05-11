@@ -95,6 +95,77 @@ class ControllerFacturesTest {
         PlatChoisi p = new PlatChoisi(pm, 20);
         f.ajoutePlat(p);
 
+        double soustotal=0;
+        soustotal += 20 * 20.25;
+
+
         Assert.assertEquals(controller.sousTotal(), f.sousTotal(), 1);
+        Assert.assertEquals(controller.sousTotal(), soustotal, 1);
+    }
+
+    @Test
+    void testReinitialiser(){
+        Initialiser();
+
+        ControllerFactures controller = new ControllerFactures(f, vue);
+
+        ConcreteFactoryPlat factoryPlat = new ConcreteFactoryPlat();
+        PlatAuMenu pm = factoryPlat.creerPlat(2, "Poulet", 20.25);
+        PlatChoisi p = new PlatChoisi(pm, 20);
+        f.ajoutePlat(p);
+
+        controller.reinitialiserFacture("Nouvelle facture");
+
+        Assert.assertEquals("Nouvelle facture", f.getDescription());
+
+
+    }
+
+    @Test
+    void testTPS(){
+        Initialiser();
+
+        ControllerFactures controller = new ControllerFactures(f, vue);
+
+        ConcreteFactoryPlat factoryPlat = new ConcreteFactoryPlat();
+        PlatAuMenu pm = factoryPlat.creerPlat(2, "Poulet", 20.25);
+        PlatChoisi p = new PlatChoisi(pm, 20);
+        f.ajoutePlat(p);
+
+        double tps = controller.sousTotal() * f.getTPS();
+
+        Assert.assertEquals(tps, controller.tps(), 0);
+    }
+
+    @Test
+    void testTVQ(){
+        Initialiser();
+
+        ControllerFactures controller = new ControllerFactures(f, vue);
+
+        ConcreteFactoryPlat factoryPlat = new ConcreteFactoryPlat();
+        PlatAuMenu pm = factoryPlat.creerPlat(2, "Poulet", 20.25);
+        PlatChoisi p = new PlatChoisi(pm, 20);
+        f.ajoutePlat(p);
+
+        double tvq = controller.sousTotal() * f.getTVQ();
+
+        Assert.assertEquals(tvq, controller.tvq(), 0);
+    }
+
+    @Test
+    void testTotal(){
+        Initialiser();
+
+        ControllerFactures controller = new ControllerFactures(f, vue);
+
+        ConcreteFactoryPlat factoryPlat = new ConcreteFactoryPlat();
+        PlatAuMenu pm = factoryPlat.creerPlat(2, "Poulet", 20.25);
+        PlatChoisi p = new PlatChoisi(pm, 20);
+        f.ajoutePlat(p);
+
+        double total = controller.sousTotal() + controller.tvq() + controller.tps();
+
+        Assert.assertEquals(total, controller.total(), 0);
     }
 }

@@ -86,7 +86,7 @@ public class ControllerFactures {
      *
      * @return la valeur de la TPS
      */
-    private double tps(){
+    public double tps(){
         return facture.getTPS() *sousTotal();
     }
 
@@ -95,7 +95,7 @@ public class ControllerFactures {
      *
      * @return la valeur de la TVQ
      */
-    private  double tvq(){
+    public  double tvq(){
         return facture.getTVQ()*sousTotal();
     }
 }
