@@ -142,9 +142,9 @@ public class Facture {
      * Permet de selectionner un plat
      * @param p plat a selectionner
      */
-    public void selectionnerPlat(PlatChoisi p){
+    public void selectionnerPlat(PlatChoisi p) throws FactureException{
 
-        platSelectionner = p;
+        etatFacture.selectionnerPlat(p);
 
     }
     public PlatChoisi getPlatSelectionner(){return platSelectionner;}
@@ -199,6 +199,10 @@ public class Facture {
 
     public EtatFacture getEtatFacture() {
         return etatFacture;
+    }
+
+    public void setPlatSelectionner(PlatChoisi p){
+        this.platSelectionner = p;
     }
 
     /**********************Constantes ************/

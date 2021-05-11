@@ -26,6 +26,7 @@ public class ControllerFactures {
      * @param facture facture a ajouter au controller
      * @param vue vue a ajouter au controller
      */
+
     public ControllerFactures(Facture facture, Vue vue){
         this.facture = facture;
         this.vue = vue;

@@ -70,7 +70,7 @@ public class EtatOuvert extends EtatFacture{
      */
     @Override
     public void selectionnerPlat(PlatChoisi p) {
-        facture.selectionnerPlat(p);
+        facture.setPlatSelectionner(p);
     }
 
     @Override

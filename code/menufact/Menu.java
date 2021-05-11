@@ -208,9 +208,10 @@ public class Menu {
 
     public void ecrireFichier(){
         try {
-            FileWriter fichier = new FileWriter("Menu.txt");
+            FileWriter fichier = new FileWriter("FactureEtMenu.txt");
 
-            fichier.write(this.toString());
+            fichier.append(this.toString());
+            fichier.append("\n\n");
             fichier.close();
 
         } catch (IOException e) {

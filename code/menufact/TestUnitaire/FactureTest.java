@@ -117,19 +117,4 @@ public class FactureTest {
 
         assertEquals(platC1, f.getPlatSelectionner());
     }
-    @org.junit.jupiter.api.Test
-    void selectionnerPlat2() throws IngredientException {
-        initialiser();
-
-        f.payer();
-        try {
-            f.getEtatFacture().selectionnerPlat(platC1);
-            assertEquals(platC1, f.getPlatSelectionner());
-        }
-        catch (Exception e )
-        {
-            System.out.println(e.getMessage());
-        }
-
-    }
 }

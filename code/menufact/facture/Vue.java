@@ -1,5 +1,6 @@
 package menufact.facture;
 
+import menufact.Menu;
 import menufact.plats.PlatChoisi;
 
 import java.io.FileWriter;
@@ -18,6 +19,8 @@ public class Vue{
      * f contient la facture qui a les informations que la vue doit afficher
      */
     Facture f;
+
+    Menu menu;
 
     /**
      * Constructeur de base, sans parametres, de la classe.
@@ -100,9 +103,13 @@ public class Vue{
         this.f = f;
     }
 
+    public void setMenu(Menu f){
+        this.menu = menu;
+    }
+
     public void ecrireFichier(){
         try {
-            FileWriter fichier = new FileWriter("Facture.txt");
+            FileWriter fichier = new FileWriter("FactureEtMenu.txt");
 
             fichier.write(genererFacture());
             fichier.close();
