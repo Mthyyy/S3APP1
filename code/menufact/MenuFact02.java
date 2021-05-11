@@ -121,6 +121,9 @@ public class MenuFact02 {
 
         controller.payerFacture();
 
+        vue.ecrireFichier();
+        menu.ecrireFichier();
+
         System.out.println(vue);
         //facture.ouvrir();
 
