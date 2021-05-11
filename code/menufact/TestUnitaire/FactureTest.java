@@ -5,6 +5,7 @@ import menufact.facture.*;
 import menufact.plats.PlatAuMenu;
 import menufact.plats.PlatChoisi;
 import org.junit.Assert;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -89,6 +90,36 @@ public class FactureTest {
     }
 
     @org.junit.jupiter.api.Test
+    void ajoutePlatFacturePayer() throws IngredientException {
+        initialiser();
+
+        f.getEtatFacture().payer();
+        f.ajoutePlat(platC1);
+
+
+        Assert.assertEquals(0,f.getPlatchoisi().size());
+
+    }
+
+    @org.junit.jupiter.api.Test
+    void ajoutePlatFactureFermee() throws IngredientException {
+        initialiser();
+
+        try {
+            f.getEtatFacture().fermer();
+        }catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
+
+        f.ajoutePlat(platC1);
+
+
+        Assert.assertEquals(0,f.getPlatchoisi().size());
+
+    }
+
+    @org.junit.jupiter.api.Test
     void retirerPlat() throws IngredientException {
         initialiser();
         try {
@@ -126,5 +157,23 @@ public class FactureTest {
 
         assertEquals("Voici ma nouvelle description", f.getDescription());
         assertEquals(null, f.getPlatSelectionner());
+    }
+
+    @Test
+    void getTps() {
+        initialiser();
+        assertEquals(0.05,f.getTPS());
+    }
+
+    @Test
+    void getTvq() {
+        initialiser();
+        assertEquals(0.095,f.getTVQ());
+    }
+
+    @Test
+    void getDescription() {
+        initialiser();
+        assertEquals("factureTest",f.getDescription());
     }
 }
