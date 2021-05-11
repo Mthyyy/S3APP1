@@ -106,14 +106,14 @@ class PlatChoisiTest {
     @Test
     public void testSetQte() throws Exception{
         ConcreteFactoryPlat factory = new ConcreteFactoryPlat();
-        PlatAuMenu pm= factory.creerPlat(1, "boeuf", 10.25);
+        PlatAuMenu pm= factory.creerPlat(1, "Cheval", 10.25);
 
         ViandeInventaire.getInstance();
-        ViandeInventaire.ajouterIngredient("boeuf","allo",1000,Solide.getInstance());
+        ViandeInventaire.ajouterIngredient("Cheval","allo",1000,Solide.getInstance());
 
         ListeIngredients liste = new ListeIngredients();
 
-        liste.ajouterIngredient(ViandeInventaire.getIngredient("boeuf"),500);
+        liste.ajouterIngredient(ViandeInventaire.getIngredient("Cheval"),500);
 
         pm.setListeIngredients(liste);
 
@@ -121,6 +121,6 @@ class PlatChoisiTest {
 
         p.setQuantite(2);
 
-        Assert.assertEquals(ViandeInventaire.getIngredient("boeuf").getQuantite(), 0);
+        Assert.assertEquals(ViandeInventaire.getIngredient("Cheval").getQuantite(), 0);
     }
 }
