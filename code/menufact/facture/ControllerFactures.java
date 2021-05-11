@@ -47,18 +47,34 @@ public class ControllerFactures {
         return vue.toString();
     }
 
+    /**
+     * Permet de fermer la facture associee au controller
+     * @throws Exception exception des etats
+     */
     public void fermerFacture() throws Exception{
         facture.fermer();
     }
 
+    /**
+     * Permet d'ouvrir la facture associee au controller
+     * @throws Exception exception des etats
+     */
     public void ouvrirFacture() throws Exception{
         facture.ouvrir();
     }
 
+    /**
+     * Permet de payer la facture associee au controller
+     * @throws Exception exception des etats
+     */
     public void payerFacture() throws Exception{
         facture.payer();
     }
 
+    /**
+     * Permet de reinitialiser la facture
+     * @param description description de la nouvelle facture
+     */
     public void reinitialiserFacture(String description){
         facture.reinitialiser(description);
     }

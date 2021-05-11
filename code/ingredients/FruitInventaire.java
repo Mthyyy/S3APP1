@@ -4,8 +4,17 @@ import ingredients.exceptions.IngredientException;
 
 import java.util.ArrayList;
 
+/**
+ * Singleton qui permet de gerer le stock d'epice
+ * @author Mathieu Lefebvre
+ * @version 1.0
+ * @see IngredientInventaire
+ */
 public class FruitInventaire extends IngredientInventaire {
 
+    /**
+     * instance est l'instance de fruit pour le singleton
+     */
     private static FruitInventaire instance;
 
     private FruitInventaire()

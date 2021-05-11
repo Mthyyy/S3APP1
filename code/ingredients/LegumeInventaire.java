@@ -4,6 +4,12 @@ import ingredients.exceptions.IngredientException;
 
 import java.util.ArrayList;
 
+/**
+ * Singleton qui permet de gerer le stock de legume
+ * @author Mathieu Lefebvre
+ * @version 1.0
+ * @see IngredientInventaire
+ */
 public class LegumeInventaire extends IngredientInventaire {
 
     private static LegumeInventaire instance;

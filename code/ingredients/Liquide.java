@@ -1,11 +1,21 @@
 package ingredients;
 
 /**
- * etat Liquide
+ * Etat liquide pour un ingredient, c'est un singleton
+ * @author Mathieu Lefebvre
+ * @version 1.0
+ * @see EtatIngredient
  */
 public class Liquide extends EtatIngredient{
 
+    /**
+     * String qui contient l'unite
+     */
     protected String unite;
+
+    /**
+     * Instance du singleton
+     */
     private static Liquide instance;
 
     /**

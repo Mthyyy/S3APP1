@@ -5,7 +5,10 @@ import ingredients.exceptions.IngredientException;
 import java.util.ArrayList;
 
 /**
- * Inventaire des produits laitier
+ * Singleton qui permet de gerer le stock de produit laitier
+ * @author Mathieu Lefebvre
+ * @version 1.0
+ * @see IngredientInventaire
  */
 public class LaitierInventaire extends IngredientInventaire  {
     private static LaitierInventaire instance;

@@ -75,6 +75,9 @@ public class PlatChoisi {
 
     }
 
+    /**
+     * RetirerPlat doit etre appele lorsqu'on retire un plat afin de remettre les ingredients utilises dans l'inventaire
+     */
     public void retirerPlat(){
         if(etat != PlatEtat.IMPOSSIBLE){
             for(int i =0 ;i<plat.getListeIngredients().getListIngredients().size();i++) {
@@ -106,6 +109,10 @@ public class PlatChoisi {
         return quantite;
     }
 
+    /**
+     * Permet de set la quantite tout en utilisant la bonne quantite d'ingredients
+     * @param quantite
+     */
     public void setQuantite(int quantite) {
         retirerPlat();
         this.quantite = quantite;

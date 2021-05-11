@@ -2,6 +2,8 @@ package ingredients;
 
 /**
  * Etat physique de l'ingrédients
+ * @author Mathieu Lefebvre
+ * @version 1.0
  */
 public abstract class EtatIngredient {
 

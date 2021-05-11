@@ -1,7 +1,10 @@
 package ingredients;
 
 /**
- * Ingredient de type Viande
+ * Ingredient viande
+ * @author Mathieu Lefebvre
+ * @version 1.0
+ * @see Ingredient
  */
 public class Viande extends Ingredient{
 

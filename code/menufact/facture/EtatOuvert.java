@@ -90,6 +90,10 @@ public class EtatOuvert extends EtatFacture{
         return null;
     }
 
+    /**
+     * Surcharge de la methode reinitialiser
+     * @param description description de la nouvelle facture
+     */
     @Override
     public void reinitialiser(String description){
         facture.setDate(new Date());

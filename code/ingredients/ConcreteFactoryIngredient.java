@@ -4,6 +4,9 @@ import ingredients.exceptions.IngredientException;
 
 /**
  * Instance concrete de Factory Ingredient
+ * @Author Mathieu Lefebvre
+ * @version 1.0
+ * @see Ingredient
  */
 public class ConcreteFactoryIngredient implements FactoryIngredient {
 

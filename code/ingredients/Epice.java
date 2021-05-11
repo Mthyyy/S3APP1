@@ -1,7 +1,10 @@
 package ingredients;
 
 /**
- * Ingrdient Epice
+ * Ingredient epice
+ * @author Mathieu Lefebvre
+ * @version 1.0
+ * @see Ingredient
  */
 public class Epice extends Ingredient{
     public Epice(String nom, String description, int quantite, EtatIngredient etat) {

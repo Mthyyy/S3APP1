@@ -1,7 +1,10 @@
 package ingredients;
 
 /**
- * produit laitier
+ * Ingredient laitier
+ * @author Mathieu Lefebvre
+ * @version 1.0
+ * @see Ingredient
  */
 public class Laitier extends Ingredient{
     public Laitier(String nom, String description,int quantite,EtatIngredient etat) {

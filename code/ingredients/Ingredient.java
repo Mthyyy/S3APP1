@@ -1,7 +1,10 @@
 package ingredients;
 
 /**
- * Un ingrédient
+ * Ingredient qui peut etre parametre differemment
+ * @author Mathieu Lefebvre
+ * @version 1.0
+ * @see Ingredient
  */
 public abstract class Ingredient {
     protected String nom;

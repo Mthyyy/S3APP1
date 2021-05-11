@@ -64,5 +64,9 @@ public abstract class EtatFacture {
 
     public abstract String affiche();
 
+    /**
+     * Methode qui permet de reinitialiser la facture
+     * @param d
+     */
     public abstract void reinitialiser(String d);
 }

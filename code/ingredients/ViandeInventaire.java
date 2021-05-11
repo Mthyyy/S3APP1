@@ -5,7 +5,10 @@ import ingredients.exceptions.IngredientException;
 import java.util.ArrayList;
 
 /**
- * Inventaire de la viande
+ * Singleton qui permet de gerer le stock de produit laitier
+ * @author Mathieu Lefebvre
+ * @version 1.0
+ * @see IngredientInventaire
  */
 public class ViandeInventaire extends IngredientInventaire{
 

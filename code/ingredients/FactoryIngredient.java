@@ -4,7 +4,9 @@ import ingredients.exceptions.IngredientException;
 import menufact.facture.exceptions.FactureException;
 
 /**
- * Createur d'ingrédient
+ * Inteface de la factory qui creer les ingredients
+ * @author Mathieu Lefebvre
+ * @version 1.0
  */
 interface FactoryIngredient {
     /**

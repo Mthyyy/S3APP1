@@ -10,8 +10,9 @@ import java.util.Date;
 
 /**
  * Une facture du systeme Menufact
- * @author Domingo Palao Munoz
+ * @author Domingo Palao Munoz, Mathias Gagnon, Mathieu Lefebvre
  * @version 1.0
+ * @see Facture
  */
 public class Facture {
     private Date date;
@@ -147,6 +148,10 @@ public class Facture {
 
     }
 
+    /**
+     * Methode qui reinitialise la facture
+     * @param description
+     */
     public void reinitialiser(String description){
         etatFacture.reinitialiser(description);
 

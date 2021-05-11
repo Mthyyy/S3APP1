@@ -108,6 +108,10 @@ public class EtatPaye extends EtatFacture{
         return stream;
     }
 
+    /**
+     * Surcharge de la methode reinitialiser
+     * @param description description de la nouvelle facture
+     */
     @Override
     public void reinitialiser(String description){
         facture.setDate(new Date());

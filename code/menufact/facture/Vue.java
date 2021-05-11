@@ -111,6 +111,10 @@ public class Vue{
         this.menu = menu;
     }
 
+    /**
+     * Methode qui permet d'ecrire la facture dans le fichier, avec le menu
+     * @param menu Le menu qu'il faut ecrire dans le menu
+     */
     public void ecrireFichier(Menu menu){
         try {
             FileWriter fichier = new FileWriter("FactureEtMenu.txt");

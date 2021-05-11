@@ -6,11 +6,21 @@ import ingredients.exceptions.IngredientException;
 import java.util.ArrayList;
 
 /**
- * liste des ingredient d'un platMenu
+ * La classe listeIngredients est la liste des ingredients dans un PlatAuMenu
+ * @author Mathieu Lefebvre
+ * @version 1.0
+ * @see Ingredient
  */
 public class ListeIngredients {
 
+    /**
+     * lesIngredients contient tous les ingredients
+     */
     private ArrayList<Ingredient> lesIngedients;
+
+    /**
+     * factory est la factory qui cree les ingredients a ajouter dans la liste
+     */
     private ConcreteFactoryIngredient factory;
 
     /**
@@ -42,6 +52,10 @@ public class ListeIngredients {
         return lesIngedients;
     }
 
+    /**
+     * Surcharge la methode toString
+     * @return
+     */
     @Override
     public String toString(){
         String stream = " ";

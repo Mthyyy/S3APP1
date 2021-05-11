@@ -1,7 +1,10 @@
 package ingredients;
 
 /**
- * Legume
+ * Ingredient legume
+ * @author Mathieu Lefebvre
+ * @version 1.0
+ * @see Ingredient
  */
 public class Legume extends Ingredient{
     public Legume(String nom, String description,int quantite,EtatIngredient etat) {
