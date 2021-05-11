@@ -59,8 +59,8 @@ public class ControllerFactures {
         facture.payer();
     }
 
-    public void reinitialiserFacture(){
-
+    public void reinitialiserFacture(String description){
+        facture.reinitialiser(description);
     }
 
     /**

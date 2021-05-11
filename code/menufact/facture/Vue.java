@@ -103,6 +103,10 @@ public class Vue{
         this.f = f;
     }
 
+    public Facture getFacture(){
+        return f;
+    }
+
     public void setMenu(Menu f){
         this.menu = menu;
     }
