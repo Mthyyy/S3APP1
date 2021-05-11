@@ -99,8 +99,8 @@ public class PlatChoisi {
     public String toString() {
         return "menufact.plats.PlatChoisi{" +
                 "quantite=" + quantite +
-                ", plat=" + plat +
-                ", etat =" + etat +
+                ", plat=" + plat.getCode() +
+                ", prix unitaire= " + plat.getPrix()+
                 '}';
     }
 
