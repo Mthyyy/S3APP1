@@ -33,7 +33,10 @@ public abstract class IngredientInventaire {
         {
             if(listIngredient.get(i).getNom() == nom)
             {
+
                 ingredientTrouver =true;
+
+
                 return listIngredient.get(i).getQuantite();
             }
         }
@@ -61,8 +64,9 @@ public abstract class IngredientInventaire {
         }
         if(!ingredientTrouver) throw new IngredientException("Ingredients introuvable");
 
+
         if (quantite < 0)
-            throw new IngredientException("Il n'est pas possible d'avoir une quantité negative");
+            throw new IngredientException("Il n'est pas possibloookoe d'avoir une quantité negative");
 
     }
 

@@ -20,7 +20,7 @@ public class MenuFact02 {
 
         Menu menu = Menu.getInstance("Menu du restaurant");
 
-        ViandeInventaire.ajouterIngredient("poulet","allo",5000,Solide.getInstance());
+        ViandeInventaire.ajouterIngredient("poulet","allo",400,Solide.getInstance());
         LegumeInventaire.ajouterIngredient("patate","allo",10000,Solide.getInstance());
         LaitierInventaire.ajouterIngredient("Fromage", "Fromage de chevre", 10000, Solide.getInstance());
         FruitInventaire.ajouterIngredient("Pomme", "Jus de pomme", 10000, Liquide.getInstance());
@@ -51,7 +51,7 @@ public class MenuFact02 {
         FactoryPlats factoryPlats = new ConcreteFactoryPlat();
 
         PlatAuMenu pm1 = factoryPlats.creerPlat(1, "frite", 11.25);
-        PlatAuMenu pm2 = factoryPlats.creerPlatEnfant(2, "poutine", 16.25, 0.5);
+        PlatAuMenu pm2 = factoryPlats.creerPlatEnfant(2, "poutine", 16.25,0.5);
         PlatAuMenu pm3 = factoryPlats.creerPlatSante(3, "Poulet au basilic", 20, 3, 200, 45);
 
         pm1.setListeIngredients(liste);
@@ -77,6 +77,11 @@ public class MenuFact02 {
         PlatChoisi p2 = new PlatChoisi(pm2, 1);
         PlatChoisi p3 = new PlatChoisi(pm3, 1);
 
+
+        System.out.println(p1);
+        System.out.println(p2);
+        System.out.println(p3);
+
         chef.ajouterServeur(serveur1);
         chef.ajouterServeur(serveur2);
 
@@ -86,15 +91,12 @@ public class MenuFact02 {
 
         chef.preparer();
 
-        System.out.println(p1);
-        System.out.println(p2);
-        System.out.println(p3);
 
         chef.termine();
 
-        //System.out.println(p1);
-        //System.out.println(p2);
-        //System.out.println(p3);
+        System.out.println(p1);
+        System.out.println(p2);
+        System.out.println(p3);
 
         Facture facture = new Facture("Facture du client");
         Vue vue = new Vue();
