@@ -2,6 +2,7 @@ package menufact.facture;
 
 import menufact.facture.exceptions.FactureException;
 import menufact.plats.PlatChoisi;
+import menufact.plats.PlatEtat;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -63,6 +64,16 @@ public class EtatOuvert extends EtatFacture{
      */
     @Override
     public void retirerPlat() {
+        try{
+            if(facture.getPlatSelectionner().getEtat() != PlatEtat.COMMANDE){
+                throw new FactureException("On ne peut pas retirer un plat qui est en preparation, termine ou servi");
+            }
+        }
+
+        catch(FactureException e){
+            System.out.println(e.getMessage());
+        }
+        facture.getPlatSelectionner().retirerPlat();
         facture.getPlatchoisi().remove(facture.getPlatSelectionner());
     }
 

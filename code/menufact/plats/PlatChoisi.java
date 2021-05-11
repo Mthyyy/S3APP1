@@ -34,6 +34,17 @@ public class PlatChoisi {
      * @param quantite contient la quantite
      */
     public PlatChoisi(PlatAuMenu plat, int quantite){
+
+        try{
+            if(quantite <= 0){
+                throw new Exception("On ne peut pas avoir une quantite plus petite ou egale a 0");
+            }
+        }
+
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
         this.plat = plat;
         this.quantite = quantite;
         this.etat = PlatEtat.COMMANDE;
@@ -64,6 +75,20 @@ public class PlatChoisi {
 
         }
 
+        public void retirerPlat(){
+            if(etat != PlatEtat.IMPOSSIBLE){
+                for(int i =0 ;i<plat.getListeIngredients().getListIngredients().size();i++) {
+                    try {
+
+                        plat.getListeIngredients().getListIngredients().get(i).getInventaire().setQuantite(plat.getListeIngredients().getListIngredients().get(i).getNom(), plat.getListeIngredients().getListIngredients().get(i).getInventaire().getQuantite(plat.getListeIngredients().getListIngredients().get(i).getNom()) + plat.getListeIngredients().getListIngredients().get(i).getQuantite() * quantite);
+
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+            }
+        }
+
 
 
     /**
@@ -84,7 +109,31 @@ public class PlatChoisi {
     }
 
     public void setQuantite(int quantite) {
+        retirerPlat();
         this.quantite = quantite;
+
+        for(int i =0 ;i<plat.getListeIngredients().getListIngredients().size();i++) {
+            try {
+
+                if (plat.getListeIngredients().getListIngredients().get(i).getQuantite() * quantite > plat.getListeIngredients().getListIngredients().get(i).getInventaire().getQuantite(plat.getListeIngredients().getListIngredients().get(i).getNom())) {
+
+                    this.etat = PlatEtat.IMPOSSIBLE;
+                } else {
+
+                    try {
+
+                        plat.getListeIngredients().getListIngredients().get(i).getInventaire().setQuantite(plat.getListeIngredients().getListIngredients().get(i).getNom(), plat.getListeIngredients().getListIngredients().get(i).getInventaire().getQuantite(plat.getListeIngredients().getListIngredients().get(i).getNom()) - plat.getListeIngredients().getListIngredients().get(i).getQuantite() * quantite);
+
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+
+                }
+            }catch (Exception e)
+            {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 
     public void setEtat(PlatEtat etat){

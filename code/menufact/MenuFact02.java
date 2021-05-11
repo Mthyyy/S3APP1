@@ -20,11 +20,11 @@ public class MenuFact02 {
 
         Menu menu = Menu.getInstance("Menu du restaurant");
 
-        ViandeInventaire.ajouterIngredient("poulet","allo",5000,Solide.getInstance());
-        LegumeInventaire.ajouterIngredient("patate","allo",10000,Solide.getInstance());
-        LaitierInventaire.ajouterIngredient("Fromage", "Fromage de chevre", 10000, Solide.getInstance());
-        FruitInventaire.ajouterIngredient("Pomme", "Jus de pomme", 10000, Liquide.getInstance());
-        EpiceInventaire.ajouterIngredient("Basilic", "Feuilles de basilic", 5000, Solide.getInstance());
+        ViandeInventaire.ajouterIngredient("poulet","allo",500,Solide.getInstance());
+        LegumeInventaire.ajouterIngredient("patate","allo",1000,Solide.getInstance());
+        LaitierInventaire.ajouterIngredient("Fromage", "Fromage de chevre", 1000, Solide.getInstance());
+        FruitInventaire.ajouterIngredient("Pomme", "Jus de pomme", 1000, Liquide.getInstance());
+        EpiceInventaire.ajouterIngredient("Basilic", "Feuilles de basilic", 500, Solide.getInstance());
 
         ListeIngredients liste = new ListeIngredients();
         ListeIngredients liste2 = new ListeIngredients();
@@ -40,7 +40,7 @@ public class MenuFact02 {
 
         liste3.ajouterIngredient(ViandeInventaire.getIngredient("poulet"),200);
         liste3.ajouterIngredient(LegumeInventaire.getIngredient("patate"),400);
-        liste3.ajouterIngredient(EpiceInventaire.getIngredient("Basilic"), 100);
+        liste3.ajouterIngredient(EpiceInventaire.getIngredient("Basilic"), 1000);
 
 
         Chef chef = new Chef();
@@ -126,7 +126,7 @@ public class MenuFact02 {
         //System.out.println(vue);
         //facture.ouvrir();
         System.out.println(vue.genererFacture());
-        
+
         facture.reinitialiser("Table 4");
         System.out.println(vue);
 
