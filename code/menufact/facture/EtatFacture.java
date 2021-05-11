@@ -63,4 +63,6 @@ public abstract class EtatFacture {
     public abstract void selectionnerPlat(PlatChoisi p) throws FactureException;
 
     public abstract String affiche();
+
+    public abstract void reinitialiser(String d);
 }

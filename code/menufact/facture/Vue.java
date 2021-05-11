@@ -107,11 +107,11 @@ public class Vue{
         this.menu = menu;
     }
 
-    public void ecrireFichier(){
+    public void ecrireFichier(Menu menu){
         try {
             FileWriter fichier = new FileWriter("FactureEtMenu.txt");
 
-            fichier.write(genererFacture());
+            fichier.write(genererFacture() + '\n' +  '\n' + menu.toString());
             fichier.close();
 
         } catch (IOException e) {

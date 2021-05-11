@@ -21,7 +21,6 @@ public class Facture {
     private int courant;
     private Client client;
     private EtatFacture etatFacture;
-    private String etatString;
     private PlatChoisi platSelectionner;
 
 
@@ -147,6 +146,12 @@ public class Facture {
         etatFacture.selectionnerPlat(p);
 
     }
+
+    public void reinitialiser(String description){
+        etatFacture.reinitialiser(description);
+
+    }
+
     public PlatChoisi getPlatSelectionner(){return platSelectionner;}
 
     public void setEtat(FactureEtat etat){

@@ -85,7 +85,7 @@ public class Menu {
      * Permet de retirer un plat du menu en fonction de son code
      * @param id code du plat
      */
-    void retirerPlat(int id) throws MenuException{
+    void retirerPlat(int id){
 
         try{
             for(int i = 0; i < plat.size(); i++){
@@ -126,7 +126,7 @@ public class Menu {
      * Permet d'aller a la position suivante dans le menu avec la variable courant.
      * @throws MenuException si il n'y a plus de place dans le menu
      */
-    public void positionSuivante() throws MenuException
+    public void positionSuivante()
     {
         try{
             if (courant+1 >= plat.size())
@@ -145,7 +145,7 @@ public class Menu {
      * Permet d'aller a la position precedente dans le menu avec la variable courant.
      * @throws MenuException si on est deja au debut du menu
      */
-    public void positionPrecedente() throws MenuException
+    public void positionPrecedente()
     {
         try{
             if (courant-1 < 0)
@@ -167,13 +167,20 @@ public class Menu {
      */
     public PlatAuMenu getPlat(int id){
 
-        for(int i = 0; i < plat.size(); i++){
-            if(plat.get(i).getCode() == id){
-                return plat.get(i);
+        try{
+            for(int i = 0; i < plat.size(); i++){
+                if(plat.get(i).getCode() == id){
+                    return plat.get(i);
+                }
             }
+
+            throw new MenuException("Erreur le plat n'est pas dans le menu");
         }
 
-        System.out.println("Aucun plat ne correspond a ce code");
+        catch(MenuException e){
+            System.out.println(e.getMessage());
+        }
+
         return null;
     }
 
@@ -206,17 +213,4 @@ public class Menu {
                 '}';
     }
 
-    public void ecrireFichier(){
-        try {
-            FileWriter fichier = new FileWriter("FactureEtMenu.txt");
-
-            fichier.append(this.toString());
-            fichier.append("\n\n");
-            fichier.close();
-
-        } catch (IOException e) {
-            System.out.println("Incapable d'ouvrir le fichier");
-            e.printStackTrace();
-        }
-    }
 }

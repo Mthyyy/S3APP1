@@ -59,6 +59,10 @@ public class ControllerFactures {
         facture.payer();
     }
 
+    public void reinitialiserFacture(){
+
+    }
+
     /**
      * Calcul du sous total de la facture
      * @return le sous total

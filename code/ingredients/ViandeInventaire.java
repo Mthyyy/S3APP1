@@ -53,7 +53,6 @@ public class ViandeInventaire extends IngredientInventaire{
                 if(listIngredient.get(i).getNom() == nom)
                 {
                     ingredientTrouver = true;
-                    System.out.println("Erreur Ingredient deja present");
                 }
             }
             if(!ingredientTrouver)

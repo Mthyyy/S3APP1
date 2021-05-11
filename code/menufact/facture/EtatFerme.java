@@ -4,6 +4,7 @@ import menufact.facture.exceptions.FactureException;
 import menufact.plats.PlatChoisi;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * La classe EtatFerme contient les surcharges des methodes de EtatFacture lorsqu'on veut fermer la facture.
@@ -97,4 +98,17 @@ public class EtatFerme extends EtatFacture{
         String stream = ", Sous-total= " + Double.toString(facture.sousTotal()) +", Total= " + Double.toString(facture.total());
         return stream;
     }
+
+    @Override
+    public void reinitialiser(String description){
+        facture.setDate(new Date());
+        facture.setClient(null);
+        facture.setCourant(0);
+        facture.setPlatSelectionner(null);
+        facture.setEtatFacture(new EtatOuvert(facture));
+        facture.setEtat(FactureEtat.OUVERTE);
+        facture.getPlatchoisi().clear();
+        facture.setDescription(description);
+    }
+
 }

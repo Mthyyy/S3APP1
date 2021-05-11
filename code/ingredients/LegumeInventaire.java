@@ -42,8 +42,19 @@ public class LegumeInventaire extends IngredientInventaire {
                 throw new IngredientException("On ne peut pas avoir une quantite null ou negative d'ingredient");
             }
 
-            ConcreteFactoryIngredient factory = new ConcreteFactoryIngredient();
-            listIngredient.add(factory.creerLegume(nom,description,quantite,etat));
+            boolean ingredientTrouver = false;
+            for(int i = 0 ; i < listIngredient.size();i++)
+            {
+                if(listIngredient.get(i).getNom() == nom)
+                {
+                    ingredientTrouver = true;
+                }
+            }
+            if(!ingredientTrouver)
+            {
+                ConcreteFactoryIngredient factory = new ConcreteFactoryIngredient();
+                listIngredient.add(factory.creerLegume(nom,description,quantite,etat));
+            }
         }
 
         catch (IngredientException e){

@@ -55,7 +55,7 @@ public class MenuTest {
     }
 
     @Test
-    public void testPlatCourant() throws IngredientException, MenuException {
+    public void testPlatCourant() throws IngredientException{
         initialiser();
 
 
@@ -72,7 +72,7 @@ public class MenuTest {
     }
 
     @Test
-    public void testGetPlat() throws IngredientException, MenuException{
+    public void testGetPlat(){
         menu  = Menu.getInstance("Menu");
         pm1 = new PlatAuMenu(1, "frites", 11.25);
         menu.ajoute(pm1);
@@ -81,7 +81,7 @@ public class MenuTest {
     }
 
     @Test
-    public void testSetDescription() throws IngredientException, MenuException{
+    public void testSetDescription() throws IngredientException{
         initialiser();
         String nouvelleDescription = "Je suis la nouvelle description du menu";
 
@@ -90,7 +90,7 @@ public class MenuTest {
     }
 
     @Test
-    public void testAjouter() throws IngredientException, MenuException{
+    public void testAjouter() throws IngredientException{
         initialiser();
 
         menu.ajoute(pm1);
@@ -101,7 +101,7 @@ public class MenuTest {
     }
 
     @Test
-    public void testRetirerPlat() throws IngredientException, MenuException{
+    public void testRetirerPlat() throws IngredientException{
 
         initialiser();
 
@@ -114,7 +114,7 @@ public class MenuTest {
     }
 
     @Test
-    public void testRetirerCourant() throws IngredientException, MenuException{
+    public void testRetirerCourant() throws IngredientException{
         initialiser();
 
         menu.ajoute(pm1);
@@ -129,7 +129,7 @@ public class MenuTest {
     }
 
     @Test
-    public void testPositionSuivante() throws IngredientException, MenuException{
+    public void testPositionSuivante() throws IngredientException{
         initialiser();
 
         menu.ajoute(pm1);
@@ -144,7 +144,23 @@ public class MenuTest {
     }
 
     @Test
-    public void testPositionPrecedente() throws IngredientException, MenuException{
+    public void testPositionSuivanteException() throws IngredientException{
+        initialiser();
+
+        menu.ajoute(pm1);
+        menu.ajoute(pm2);
+
+        menu.positionSuivante();
+
+        menu.positionSuivante();
+
+        String message = "On depasse le nombre maximale de plats.";
+
+        Assert.assertEquals(message, message);
+    }
+
+    @Test
+    public void testPositionPrecedente() throws IngredientException{
         initialiser();
 
         menu.ajoute(pm1);

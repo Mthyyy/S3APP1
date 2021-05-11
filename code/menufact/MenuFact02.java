@@ -121,12 +121,14 @@ public class MenuFact02 {
 
         controller.payerFacture();
 
-        vue.ecrireFichier();
-        menu.ecrireFichier();
+        vue.ecrireFichier(menu);
 
-        System.out.println(vue);
+        //System.out.println(vue);
         //facture.ouvrir();
         System.out.println(vue.genererFacture());
+        
+        facture.reinitialiser("Table 4");
+        System.out.println(vue);
 
     }
 
