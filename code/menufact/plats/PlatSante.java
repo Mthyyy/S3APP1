@@ -53,7 +53,7 @@ public class PlatSante extends PlatAuMenu {
      */
     @Override
     public String toString() {
-        return "menufact.plats.PlatSante{" +
+        return "PlatSante{" +
                 "kcal=" + kcal +
                 ", chol=" + chol +
                 ", gras=" + gras +

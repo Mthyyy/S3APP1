@@ -8,7 +8,10 @@ import static org.junit.jupiter.api.Assertions.*;
 class LegumeInventaireTest {
     @Test
     public void testAjouterIngredient() throws IngredientException {
+
         LegumeInventaire inventaire = LegumeInventaire.getInstance();
+
+        inventaire.getListIngredient().clear();
 
         inventaire.ajouterIngredient("Patate", "c bon", 50, Solide.getInstance());
 

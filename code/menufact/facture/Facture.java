@@ -3,6 +3,7 @@ package menufact.facture;
 import menufact.Client;
 import menufact.facture.exceptions.FactureException;
 import menufact.plats.PlatChoisi;
+import menufact.plats.PlatEtat;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -119,7 +120,9 @@ public class Facture {
      */
     public void ajoutePlat(PlatChoisi p) {
         try{
-            getEtatFacture().ajoutePlat(p, getPlatchoisi());
+            if(p.getEtat() != PlatEtat.IMPOSSIBLE){
+                getEtatFacture().ajoutePlat(p, getPlatchoisi());
+            }
         }
         catch (Exception e)
         {

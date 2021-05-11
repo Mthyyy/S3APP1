@@ -56,11 +56,11 @@ public class PlatAuMenu {
      */
     @Override
     public String toString() {
-        return "menufact.plats.PlatAuMenu{" +
+        return "PlatAuMenu{" +
                 "code=" + code +
                 ", description='" + description + '\'' +
                 ", prix=" + prix +
-                "}" + listeIngredients;
+                "}" + listeIngredients + "." + '\n';
     }
 
     public int getCode() {

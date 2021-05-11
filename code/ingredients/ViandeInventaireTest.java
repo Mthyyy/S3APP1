@@ -10,6 +10,8 @@ class ViandeInventaireTest {
     public void testAjouterIngredient() throws IngredientException {
         ViandeInventaire inventaire = ViandeInventaire.getInstance();
 
+        inventaire.getListIngredient().clear();
+
         inventaire.ajouterIngredient("Boeuf", "c bon", 50, Solide.getInstance());
 
         assertEquals(inventaire.getListIngredient().get(0).getNom(), "Boeuf");

@@ -187,6 +187,10 @@ public class Menu {
         return courant;
     }
 
+    public ArrayList<PlatAuMenu> getListePlats(){
+        return plat;
+    }
+
     /**
      * Surcharge de la methode toString pour pouvoir afficher les informations du menu.
      * @return String contenant les informations du menu

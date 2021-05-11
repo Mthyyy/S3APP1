@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class VueTest {
+class VueTest{
 
     Facture f;
     Vue vue;
@@ -25,7 +25,7 @@ class VueTest {
 
     }
     @Test
-    void genererFacture() {
+    void genererFacture() throws Exception{
         initialiser();
 
         vue.setFacture(f);

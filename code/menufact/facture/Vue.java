@@ -2,11 +2,13 @@ package menufact.facture;
 
 import menufact.plats.PlatChoisi;
 
+import java.lang.constant.Constable;
+
 /**
  * La classe Vue est la vue dans le modele de conception MVC. Elle permet de faire l'affichage des informations pertinentes.
  * @author Mathias Gagnon
  */
-public class Vue {
+public class Vue{
 
     /**
      * f contient la facture qui a les informations que la vue doit afficher
@@ -32,20 +34,32 @@ public class Vue {
      * Methode qui permet de generer la facture avec toutes les informations pertinentes
      * @return String qui contient toutes les informations de la facture
      */
-    public String genererFacture(){
+    public String genererFacture() throws Exception{
         String lesPlats = new String();
         String factureGenere = new String();
 
         int i =1;
 
+        try{
+            if(f.getClient() == null){
+                throw new Exception("Aucun client n'est associe");
+            }
 
-        factureGenere =   "Facture generee.\n" +
-                "Date:" + f.getDate() + "\n" +
-                "Description: " + f.getDescription() + "\n" +
-                "Client:" + f.getClient().getNom() + "\n" +
-                "Les plats commandes:" + "\n" + lesPlats;
+            factureGenere =   "Facture generee.\n" +
+                    "Date:" + f.getDate() + "\n" +
+                    "Description: " + f.getDescription() + "\n" +
+                    "Client:" + f.getClient().getNom() + "\n" +
+                    "Les plats commandes:" + "\n" + lesPlats;
 
-        factureGenere += "Seq   Plat         Prix   Quantite\n";
+            factureGenere += "Seq   Plat         Prix   Quantite\n";
+        }
+
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+
+
+
         for (PlatChoisi plat : f.getPlatchoisi())
         {
             factureGenere +=  i + "     " + plat.getPlat().getDescription() +  "  " + plat.getPlat().getPrix() +  "      " + plat.getQuantite() + "\n";
@@ -54,7 +68,7 @@ public class Vue {
 
         factureGenere += "          TPS:               " + f.getTPS() + "\n";
         factureGenere += "          TVQ:               " + f.getTVQ() + "\n";
-        factureGenere += "          Le total est de:   " + f.sousTotal() +  "\n";
+        factureGenere += "          Le total est de:   " + f.total() +  "\n";
 
         return factureGenere;
     }

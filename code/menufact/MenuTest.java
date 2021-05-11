@@ -42,6 +42,7 @@ public class MenuTest {
         pm2.setListeIngredients(liste2);
 
         menu.position(0);
+        menu.getListePlats().clear();
     }
 
 
